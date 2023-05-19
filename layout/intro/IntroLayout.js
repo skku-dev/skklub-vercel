@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import useCampusDetect from "../../hooks/useCampusDetect";
 
 const LayoutBackground = styled.div`
   background-color: ${(props) => props.color};
@@ -23,6 +24,7 @@ const LayoutBackground = styled.div`
 `;
 
 export default function IntroLayout(props) {
+  
   return (
     <LayoutBackground color={props.color}>{props.children}</LayoutBackground>
   );

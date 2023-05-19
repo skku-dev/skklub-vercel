@@ -73,7 +73,7 @@ export default function MobileRecommendSection() {
         <div>
           <RecommendTheme>인성품과 보람 동시에 잡기</RecommendTheme>
           <RecommendSubTheme style={{ color: "#9B9B9B" }}>
-            "뜻깊은 봉사활동으로 몸과 마음을 가꿔요!"
+            {`"뜻깊은 봉사활동으로 몸과 마음을 가꿔요!"`}
           </RecommendSubTheme>
           <HashtagWrapper>
             <Hashtag>#대학생활</Hashtag>
@@ -91,7 +91,6 @@ export default function MobileRecommendSection() {
             <SmallClubCircle campus={!isSuwon}>
               성균 민속 연구반 탈
             </SmallClubCircle>
-
           </SmallCircleContainer>
         </div>
       </SmallContentContainer>

@@ -23,8 +23,9 @@ const IntroSectionLayout = styled.div`
 const IntroPill = styled.div`
   background-color: ${(props) =>
     props.campus
-      ? ({ theme }) => theme.palette.primary.main
-      : ({ theme }) => theme.palette.secondary.main};
+
+      ? ({ theme }) => theme.palette.secondary.main
+      : ({ theme }) => theme.palette.primary.main};
   color: ${(props) => props.theme.palette.text.primary};
   padding: 1.5rem 1rem;
   border-radius: 50px;
@@ -73,8 +74,9 @@ const Title = styled.h1`
 const RedSpan = styled.span`
   color: ${(props) =>
     props.campus
-      ? ({ theme }) => theme.palette.primary.main
-      : ({ theme }) => theme.palette.secondary.main};
+      ? ({ theme }) => theme.palette.secondary.main
+      : ({ theme }) => theme.palette.primary.main};
+
   word-break: keep-all;
 `;
 
@@ -94,11 +96,11 @@ export default function IntroSection(props) {
   return (
     <>
       <IntroSectionLayout>
-        <IntroPill campus={!isSuwon}>Who we are</IntroPill>
+        <IntroPill campus={isSuwon}>Who we are</IntroPill>
         <IntroCard>
           <Title>
             안녕하세요, 동아리연합회 {match480 && <br />}
-            <RedSpan campus={!isSuwon}>{props.data.name}</RedSpan>입니다!
+            <RedSpan campus={isSuwon}>{props.data.name}</RedSpan>입니다!
           </Title>
           <Body>{props.data.section[0]}</Body>
         </IntroCard>
@@ -111,7 +113,7 @@ export default function IntroSection(props) {
         </IntroCard>
       </IntroSectionLayout>
       <IntroSectionLayout>
-        <IntroPill campus={!isSuwon}>How we work</IntroPill>
+        <IntroPill campus={isSuwon}>How we work</IntroPill>
         <IntroCard>
           <Title>
             동아리연합회는 {match480 && <br />}이렇게 구성되어 있어요!

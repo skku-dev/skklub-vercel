@@ -1,14 +1,10 @@
-import Head from "next/head";
-import Image from "next/image";
+import ClubsLayout from "../../layout/clubs/ClubsLayout";
 
-export default function Seoulgroups() {
+export default function Groups() {
+  const ClubCategory = "소모임";
   return (
-    <div>
-      <h1>This is Seoulgroups</h1>
-      <h1>This is Seoulgroups</h1>
-      <h1>This is Seoulgroups</h1>
-      <h1>This is Seoulgroups</h1>
-      <h1>This is Seoulgroups</h1>
-    </div>
+    <>
+      <ClubsLayout club={ClubCategory} />
+    </>
   );
 }

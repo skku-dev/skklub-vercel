@@ -76,8 +76,8 @@ export default function CardBoard() {
   return (
     <BoardWrapper>
       <CardGrid>
-        {TEMP_ROW.map((e) => (
-          <ClubCard>
+        {TEMP_ROW.map((e, idx) => (
+          <ClubCard key={idx}>
             <ClubCardName>꾼</ClubCardName>
             <ClubCardFooter>
               <ClubCardType>평면예술/서예</ClubCardType>

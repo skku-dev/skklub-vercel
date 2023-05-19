@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import useCampusDetect from "../../hooks/useCampusDetect";
 
 const BannerWrapper = styled.div`
   width: 100vw;
@@ -24,12 +25,14 @@ const Title = styled.div`
   text-align: center;
 `;
 
-export default function UpperBanner() {
+export default function UpperBanner({club}) {
+ const {isSuwon} =useCampusDetect();
+
   return (
     <BannerWrapper>
       <div>
-        <SubTitle>명륜 캠퍼스</SubTitle>
-        <Title>중앙동아리</Title>
+        <SubTitle>{isSuwon?"율전":"명륜"} 캠퍼스</SubTitle>
+        <Title>{club}</Title>
       </div>
     </BannerWrapper>
   );
