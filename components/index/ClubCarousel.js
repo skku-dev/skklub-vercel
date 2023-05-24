@@ -40,6 +40,7 @@ const GifImg = styled.img`
     top: -20px;
   }
 `;
+
 const StyledCard = styled.div`
   position: relative;
   width: 100%;
@@ -54,6 +55,7 @@ const StyledCard = styled.div`
     max-height: 550px;
   }
 `;
+
 const ContentWrap = styled.div`
   width: 80%;
   height: 100%;

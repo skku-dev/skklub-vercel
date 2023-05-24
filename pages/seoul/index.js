@@ -12,7 +12,7 @@ import CampusSwitch from "../../components/common/CampusSwitch";
 const HomeContainer = styled.div`
   width: 100%;
   min-height: -webkit-fill-available;
-  height: 100lvh;
+  height: 100%;
   text-align: center;
   display: flex;
   flex-direction: column;
