@@ -37,7 +37,7 @@ const GifImg = styled.img`
   }
 
   @media (min-width: 1024px) {
-    top: -20px;
+    top: -10px;
   }
 `;
 

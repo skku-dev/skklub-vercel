@@ -8,24 +8,23 @@ import BorrowSection from "../../components/main/Borrow/BorrowSection";
 import MobileRecommendSection from "../../components/main/Recommend/MobileRecommendSection";
 import MobileNoticeSection from "../../components/main/Notice/MobileNoticeSection";
 import CampusSwitch from "../../components/common/CampusSwitch";
-import useCampusDetect from "../../hooks/useCampusDetect";
 
 const HomeContainer = styled.div`
   width: 100%;
-  height: 100vh; //모바일 적용해야함
+  /* min-height: -webkit-fill-available;
+  height: ${(props) => props.height}; */
+  min-height: ${(props) => props.height};
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
+  /* margin-bottom: 20px; */
 `;
 
 const PromotionBanner = styled.div`
   width: 100%;
   height: 160px;
-  background-color: ${(props) =>
-    props.campus
-      ? ({ theme }) => theme.palette.primary.main
-      : ({ theme }) => theme.palette.secondary.main};
+  background-color: ${({ theme }) => theme.palette.secondary.main};
   color: #ffe195;
   font-size: 4rem;
   font-weight: 500;
@@ -43,57 +42,34 @@ const PromotionBanner = styled.div`
 
 const ContentContainer = styled.div`
   width: 100%;
-  /* height: 1440px; */
   padding: 0 1rem;
   margin: 0 auto;
   padding-bottom: 14rem;
   @media (max-width: 425px) {
     padding-bottom: 4rem;
+    max-height: 600px;
   }
-  /* background-color: grey; */
 `;
 
-export const useCustomMediaQuery = (width) => {
-  const [targetReached, setTargetReached] = useState(false);
-
-  const updateTarget = useCallback((e) => {
-    if (e.matches) setTargetReached(true);
-    else setTargetReached(false);
-  }, []);
-
-  useEffect(() => {
-    const media = window.matchMedia(`(max-width: ${width}px)`);
-    media.addEventListener("change", updateTarget);
-
-    // Check on mount (callback is not called until a change occurs)
-    if (media.matches) setTargetReached(true);
-
-    return () => media.removeEventListener("change", updateTarget);
-  }, []);
-
-  return targetReached;
-};
-
 export default function Suwon() {
-  // const matches_950 = useCustomMediaQuery(950);
-  const { isSuwon } = useCampusDetect();
   const matches_768 = useMediaQuery("(max-width:768px)");
   const matches_680 = useMediaQuery("(max-width:680px)");
+  const [homeContainerHeight, setHomeContainerHeight] = useState(1024);
+  useEffect(() => {
+    setHomeContainerHeight(window.innerHeight - 201);
+  }, []);
+
+  // const HomeContainerHeight = window.innerHeight - 201; // 헤더 높이 뺌
 
   return (
     <>
-      <HomeContainer>
+      <HomeContainer height={`${homeContainerHeight}px`}>
         <ClubCarousel />
       </HomeContainer>
       <CampusSwitch />
-      <PromotionBanner campus={!isSuwon}>동아리 홍보배너</PromotionBanner>
+      <PromotionBanner>동아리 홍보배너</PromotionBanner>
       <ContentContainer>
-        {matches_768 ? (
-          <MobileRecommendSection campus={!isSuwon} />
-        ) : (
-          <RecommendSection campus={!isSuwon} />
-        )}
-
+        {matches_768 ? <MobileRecommendSection /> : <RecommendSection />}
         {matches_680 ? <MobileNoticeSection /> : <NoticeSection />}
         <BorrowSection />
       </ContentContainer>
