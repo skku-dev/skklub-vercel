@@ -1,4 +1,5 @@
 import ClubsLayout from "../../layout/clubs/ClubsLayout";
+import { CLUBS_DUMMY_DATA } from "../../utils/constants";
 
 export default function IndependentClubs() {
   const ClubCategory = "기타동아리";
