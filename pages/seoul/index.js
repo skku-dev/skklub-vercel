@@ -11,7 +11,8 @@ import CampusSwitch from "../../components/common/CampusSwitch";
 
 const HomeContainer = styled.div`
   width: 100%;
-  min-height: 100vh;
+  min-height: 100lvh;
+
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -51,10 +52,16 @@ const ContentContainer = styled.div`
 export default function Seoul() {
   const matches_768 = useMediaQuery("(max-width:768px)");
   const matches_680 = useMediaQuery("(max-width:680px)");
+  const [homeContainerHeight, setHomeContainerHeight] = useState(1024);
+  useEffect(() => {
+    setHomeContainerHeight(window.innerHeight - 201);
+  }, []);
+
+  // const HomeContainerHeight = window.innerHeight - 201; // 헤더 높이 뺌
 
   return (
     <>
-      <HomeContainer>
+      <HomeContainer height={`${homeContainerHeight}px`}>
         <ClubCarousel />
       </HomeContainer>
       <CampusSwitch />
