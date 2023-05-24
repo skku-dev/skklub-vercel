@@ -11,13 +11,14 @@ import CampusSwitch from "../../components/common/CampusSwitch";
 
 const HomeContainer = styled.div`
   width: 100%;
-  min-height: -webkit-fill-available;
-  height: 100%;
+  /* min-height: -webkit-fill-available;
+  height: ${(props) => props.height}; */
+  min-height: ${(props) => props.height};
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
 `;
 
 const PromotionBanner = styled.div`
