@@ -8,7 +8,6 @@ import BorrowSection from "../../components/main/Borrow/BorrowSection";
 import MobileRecommendSection from "../../components/main/Recommend/MobileRecommendSection";
 import MobileNoticeSection from "../../components/main/Notice/MobileNoticeSection";
 import CampusSwitch from "../../components/common/CampusSwitch";
-import Image from "next/image";
 
 const HomeContainer = styled.div`
   width: 100%;
@@ -40,40 +39,15 @@ const PromotionBanner = styled.div`
 
 const ContentContainer = styled.div`
   width: 100%;
-  /* height: 1440px; */
   padding: 0 1rem;
   margin: 0 auto;
   padding-bottom: 14rem;
   @media (max-width: 425px) {
     padding-bottom: 4rem;
   }
-  /* background-color: grey; */
 `;
 
-export const useCustomMediaQuery = (width) => {
-  const [targetReached, setTargetReached] = useState(false);
-
-  const updateTarget = useCallback((e) => {
-    if (e.matches) setTargetReached(true);
-    else setTargetReached(false);
-  }, []);
-
-  useEffect(() => {
-    const media = window.matchMedia(`(max-width: ${width}px)`);
-    media.addEventListener("change", updateTarget);
-
-    // Check on mount (callback is not called until a change occurs)
-    if (media.matches) setTargetReached(true);
-
-    return () => media.removeEventListener("change", updateTarget);
-  }, []);
-
-  return targetReached;
-};
-
 export default function Seoul() {
-  // const matches_950 = useCustomMediaQuery(950);
-
   const matches_768 = useMediaQuery("(max-width:768px)");
   const matches_680 = useMediaQuery("(max-width:680px)");
 
@@ -86,7 +60,6 @@ export default function Seoul() {
       <PromotionBanner>동아리 홍보배너</PromotionBanner>
       <ContentContainer>
         {matches_768 ? <MobileRecommendSection /> : <RecommendSection />}
-
         {matches_680 ? <MobileNoticeSection /> : <NoticeSection />}
         <BorrowSection />
       </ContentContainer>

@@ -23,7 +23,6 @@ const IntroSectionLayout = styled.div`
 const IntroPill = styled.div`
   background-color: ${(props) =>
     props.campus
-
       ? ({ theme }) => theme.palette.secondary.main
       : ({ theme }) => theme.palette.primary.main};
   color: ${(props) => props.theme.palette.text.primary};
@@ -106,7 +105,7 @@ export default function IntroSection(props) {
         </IntroCard>
       </IntroSectionLayout>
       <IntroSectionLayout>
-        <IntroPill campus={!isSuwon}>What we do</IntroPill>
+        <IntroPill campus={isSuwon}>What we do</IntroPill>
         <IntroCard>
           <Title>저희는 {match480 && <br />}이런 활동을 해요!</Title>
           <Body>{props.data.section[1]}</Body>

@@ -1,4 +1,6 @@
 import styled from "@emotion/styled";
+import { CLUBS_DUMMY_DATA } from "../../utils/constants";
+import { useRouter } from "next/router";
 
 const BoardWrapper = styled.div`
   max-width: 1200px;
@@ -21,6 +23,10 @@ const ClubCard = styled.div`
   @media (max-width: 930px) {
     width: 163px;
     height: 163px;
+  }
+
+  &:hover {
+    cursor: pointer;
   }
 `;
 
@@ -71,16 +77,24 @@ const CardGrid = styled.div`
   }
 `;
 
-export default function CardBoard() {
-  const TEMP_ROW = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+export default function CardBoard({ cardsData }) {
+  const router = useRouter();
+  const currentPath = router.pathname;
+  const [_, location, a] = currentPath.split("/");
+  const handleCardClick = (clubId) => {
+    router.push(`/${location}/${clubId}`);
+  };
   return (
     <BoardWrapper>
       <CardGrid>
-        {TEMP_ROW.map((e, idx) => (
-          <ClubCard key={idx}>
-            <ClubCardName>꾼</ClubCardName>
+        {cardsData.map((club) => (
+          <ClubCard
+            key={club.clubName}
+            onClick={() => handleCardClick(club.clubId)}
+          >
+            <ClubCardName>{club.clubName}</ClubCardName>
             <ClubCardFooter>
-              <ClubCardType>평면예술/서예</ClubCardType>
+              <ClubCardType>{club.categories.join("/")}</ClubCardType>
               <Heart />
             </ClubCardFooter>
           </ClubCard>

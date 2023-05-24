@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import PropTypes from "prop-types";
+import useLocationPush from "../../hooks/useLocationPush";
 
 const LocationBtn = styled.button`
   border: none;
@@ -28,10 +29,11 @@ const LocationBtn = styled.button`
 export default function LocationSelectBtn({
   children,
   hoverColor = "#80A4FF",
-  handleClick,
+  nextLocation,
 }) {
+  const pushToNextLocation = useLocationPush(nextLocation);
   return (
-    <LocationBtn hoverColor={hoverColor} onClick={handleClick}>
+    <LocationBtn hoverColor={hoverColor} onClick={pushToNextLocation}>
       {children}
     </LocationBtn>
   );
@@ -39,5 +41,5 @@ export default function LocationSelectBtn({
 
 LocationSelectBtn.propTypes = {
   hoverColor: PropTypes.string,
-  handleClick: PropTypes.func,
+  nextLocation: PropTypes.string,
 };

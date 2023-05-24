@@ -5,7 +5,6 @@ export default {
   component: LocationSelectBtn,
   argTypes: {
     hoverColor: { control: "color" },
-    handleClick: { action: "onClick" },
   },
 };
 

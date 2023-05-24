@@ -13,7 +13,6 @@ import useCampusDetect from "../../hooks/useCampusDetect";
 
 const LogoWrap = styled.div`
   width: 100%;
-
   top: 0;
   z-index: 999;
   display: flex;
@@ -135,10 +134,10 @@ function HomeButton({ campusName }) {
   return (
     <Link href={`/${campusName}`}>
       <HomeImgWrap>
-        {campusName === "seoul" ? (
-          <img src="/assets/images/skklub_명륜.png" />
-        ) : (
+        {campusName === "suwon" ? (
           <img src="/assets/images/skklub_율전.png" />
+        ) : (
+          <img src="/assets/images/skklub_명륜.png" />
         )}
       </HomeImgWrap>
     </Link>
@@ -190,10 +189,10 @@ export default function Header() {
     <>
       {campusName === "" ? null : params === "" && scrollPosition < 60 ? (
         <LogoWrap>
-          {campusName === "seoul" ? (
-            <SkklubLogo src="/assets/images/skklub_명륜.png" />
-          ) : (
+          {campusName === "suwon" ? (
             <SkklubLogo src="/assets/images/skklub_율전.png" />
+          ) : (
+            <SkklubLogo src="/assets/images/skklub_명륜.png" />
           )}
         </LogoWrap>
       ) : (

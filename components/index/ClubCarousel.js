@@ -18,6 +18,11 @@ const CardWrap = styled.div`
   width: 100%;
   height: 70vh;
   margin: 0 auto;
+
+  @media (max-width: 750px) {
+    height: 65vh;
+    max-width: 400px;
+  }
 `;
 
 const GifImg = styled.img`
@@ -27,8 +32,12 @@ const GifImg = styled.img`
   left: 50%;
   transform: translate(-50%, 0);
 
+  @media (max-width: 750px) {
+    width: calc(100% + 200px);
+  }
+
   @media (min-width: 1024px) {
-    top: -40px;
+    top: -20px;
   }
 `;
 const StyledCard = styled.div`
@@ -58,6 +67,9 @@ const Content = styled.div`
   font-family: Pretendard;
   margin-top: 10px;
   text-align: left;
+  @media (max-width: 425px) {
+    margin-bottom: 20px;
+  }
 `;
 
 function ClubCarouselCard({ name, content, img }) {
@@ -78,7 +90,7 @@ export default function ClubCarousel() {
   const match760 = useMediaQuery("(max-width:760px)");
   const match1024 = useMediaQuery("(max-width:1024px)");
 
-  const width = match760 ? "90%" : match1024 ? "85%" : "60%";
+  const width = match760 ? "90%" : match1024 ? "85%" : "800px";
   return (
     <ClubCarouselContainer width={width}>
       {match760 ? (

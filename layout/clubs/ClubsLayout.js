@@ -10,13 +10,13 @@ const MainSection = styled.div`
   padding-bottom: 200px;
 `;
 
-export default function ClubsLayout({ club }) {
+export default function ClubsLayout({ club, cardsData }) {
   return (
     <>
       <UpperBanner club={club} />
       <MainSection>
         <Categories />
-        <CardBoard />
+        <CardBoard cardsData={cardsData} />
       </MainSection>
       <CampusSwitch />
     </>
