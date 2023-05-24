@@ -20,8 +20,8 @@ const CardWrap = styled.div`
   margin: 0 auto;
 
   @media (max-width: 750px) {
-    height: 65vh;
     max-width: 400px;
+    max-height: 550px;
   }
 `;
 
@@ -33,7 +33,7 @@ const GifImg = styled.img`
   transform: translate(-50%, 0);
 
   @media (max-width: 750px) {
-    width: calc(100% + 200px);
+    width: calc(100% + 100px);
   }
 
   @media (min-width: 1024px) {
@@ -48,6 +48,10 @@ const StyledCard = styled.div`
   background-color: #303030;
   text-align: center;
   margin: 0 auto;
+
+  @media (max-width: 750px) {
+    height: 550px;
+  }
 `;
 const ContentWrap = styled.div`
   width: 80%;
@@ -67,9 +71,6 @@ const Content = styled.div`
   font-family: Pretendard;
   margin-top: 10px;
   text-align: left;
-  @media (max-width: 425px) {
-    margin-bottom: 20px;
-  }
 `;
 
 function ClubCarouselCard({ name, content, img }) {
