@@ -16,7 +16,7 @@ const ClubCarouselContainer = styled.div`
 
 const CardWrap = styled.div`
   width: 100%;
-  height: 70vh;
+  height: auto;
   margin: 0 auto;
 
   @media (max-width: 750px) {

@@ -11,11 +11,12 @@ import CampusSwitch from "../../components/common/CampusSwitch";
 
 const HomeContainer = styled.div`
   width: 100%;
-  height: 100vh; //모바일 적용해야함
+  min-height: 100vh;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 20px;
 `;
 
 const PromotionBanner = styled.div`
