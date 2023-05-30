@@ -18,7 +18,7 @@ const HomeContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* margin-bottom: 20px; */
+  margin-bottom: 20px;
 `;
 
 const PromotionBanner = styled.div`
@@ -56,7 +56,10 @@ export default function Seoul() {
   const matches_680 = useMediaQuery("(max-width:680px)");
   const [homeContainerHeight, setHomeContainerHeight] = useState(1024);
   useEffect(() => {
-    setHomeContainerHeight(window.innerHeight - 201);
+    // setHomeContainerHeight(window.innerHeight - 201);
+    const height = document.documentElement.clientHeight;
+    setHomeContainerHeight(height - 201);
+    console.log(height);
   }, []);
 
   // const HomeContainerHeight = window.innerHeight - 201; // 헤더 높이 뺌

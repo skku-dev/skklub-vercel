@@ -31,7 +31,7 @@ const GifImg = styled.img`
   top: 0;
   left: 50%;
   transform: translate(-50%, 0);
-
+  /* height: 50px; */
   @media (max-width: 750px) {
     width: calc(100% + 200px);
   }
@@ -45,6 +45,7 @@ const StyledCard = styled.div`
   position: relative;
   width: 100%;
   height: 70vh;
+  min-height: 600px;
   border-radius: 20px;
   background-color: #303030;
   text-align: center;
