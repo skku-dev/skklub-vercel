@@ -8,17 +8,23 @@ import BorrowSection from "../../components/main/Borrow/BorrowSection";
 import MobileRecommendSection from "../../components/main/Recommend/MobileRecommendSection";
 import MobileNoticeSection from "../../components/main/Notice/MobileNoticeSection";
 import CampusSwitch from "../../components/common/CampusSwitch";
+import { isMobile } from "react-device-detect";
 
 const HomeContainer = styled.div`
   width: 100%;
   /* min-height: -webkit-fill-available;
   height: ${(props) => props.height}; */
+  /* min-height: ${(props) => (isMobile ? "600px" : props.height)}; */
   min-height: ${(props) => props.height};
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-bottom: 20px;
+
+  @media (max-width: 750px) {
+    min-height: 700px;
+  }
 `;
 
 const PromotionBanner = styled.div`
@@ -55,6 +61,8 @@ export default function Seoul() {
   const matches_768 = useMediaQuery("(max-width:768px)");
   const matches_680 = useMediaQuery("(max-width:680px)");
   const [homeContainerHeight, setHomeContainerHeight] = useState(1024);
+  // console.log(isMobile);
+
   useEffect(() => {
     // setHomeContainerHeight(window.innerHeight - 201);
     const height = document.documentElement.clientHeight;

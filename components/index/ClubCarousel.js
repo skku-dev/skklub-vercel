@@ -21,7 +21,7 @@ const CardWrap = styled.div`
 
   @media (max-width: 750px) {
     max-width: 400px;
-    max-height: 550px;
+    /* max-height: 550px; */
   }
 `;
 
