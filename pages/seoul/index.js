@@ -8,7 +8,6 @@ import BorrowSection from "../../components/main/Borrow/BorrowSection";
 import MobileRecommendSection from "../../components/main/Recommend/MobileRecommendSection";
 import MobileNoticeSection from "../../components/main/Notice/MobileNoticeSection";
 import CampusSwitch from "../../components/common/CampusSwitch";
-import { isMobile } from "react-device-detect";
 
 const HomeContainer = styled.div`
   width: 100%;
@@ -23,7 +22,7 @@ const HomeContainer = styled.div`
   margin-bottom: 20px;
 
   @media (max-width: 750px) {
-    height: 700px;
+    height: 600px;
   }
 `;
 
@@ -61,7 +60,6 @@ export default function Seoul() {
   const matches_768 = useMediaQuery("(max-width:768px)");
   const matches_680 = useMediaQuery("(max-width:680px)");
   const [homeContainerHeight, setHomeContainerHeight] = useState(1024);
-  // console.log(isMobile);
 
   useEffect(() => {
     // setHomeContainerHeight(window.innerHeight - 201);
