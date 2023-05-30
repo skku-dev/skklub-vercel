@@ -23,7 +23,7 @@ const HomeContainer = styled.div`
   margin-bottom: 20px;
 
   @media (max-width: 750px) {
-    min-height: 700px;
+    height: 700px;
   }
 `;
 
