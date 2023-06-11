@@ -21,7 +21,6 @@ const CardWrap = styled.div`
 
   @media (max-width: 750px) {
     max-width: 400px;
-    /* max-height: 550px; */
   }
 `;
 
@@ -31,7 +30,6 @@ const GifImg = styled.img`
   top: 0;
   left: 50%;
   transform: translate(-50%, 0);
-  /* height: 50px; */
   @media (max-width: 750px) {
     width: calc(100% + 200px);
   }
@@ -53,7 +51,7 @@ const StyledCard = styled.div`
 
   @media (max-width: 750px) {
     height: 550px;
-    max-height: 550px;
+    min-height: 550px;
   }
 `;
 
