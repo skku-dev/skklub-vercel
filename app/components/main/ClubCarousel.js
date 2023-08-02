@@ -36,7 +36,7 @@ const ClubCarouselContainer = styled.div`
 
 const CardWrap = styled.div`
   width: 100%;
-  height: auto;
+  box-sizing: border-box;
   margin: 0 auto;
   white-space: pre-line;
 
