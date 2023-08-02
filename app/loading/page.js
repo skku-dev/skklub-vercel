@@ -1,0 +1,8 @@
+"use client";
+
+import styled from "@emotion/styled";
+import LoadingLayout from "../layouts/loading/LoadingLayout";
+
+export default function Loading() {
+  return <LoadingLayout />;
+}

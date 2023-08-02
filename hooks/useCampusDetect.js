@@ -1,9 +1,10 @@
+"use client";
+import { usePathname } from "next/navigation";
 import { useState, useEffect, useCallback } from "react";
-import { useRouter } from "next/router";
 
 const useCampusDetect = () => {
-  const router = useRouter();
-  const campusName = router.pathname.slice(1, 6);
+  const router = usePathname();
+  const campusName = router.slice(1, 6);
   const [campus, setCampus] = useState(campusName === "suwon"); // suwon === true, seoul === false
   const isSuwon = campusName === "suwon";
   // const isSeoul = !isSuwon;
