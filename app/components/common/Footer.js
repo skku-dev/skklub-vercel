@@ -1,8 +1,9 @@
 "use client";
 
-import useThemeModeDetect from "@/hooks/useThemeModeDetect";
 import useURLParse from "@/hooks/useURLParse";
+import { isDarkModeState } from "@/utils/atoms";
 import styled from "@emotion/styled";
+import { useRecoilValue } from "recoil";
 
 const FooterWrap = styled.div`
   width: 100%;
@@ -27,7 +28,7 @@ const FooterWrap = styled.div`
 `;
 
 export default function Footer() {
-  const isDarkMode = useThemeModeDetect();
+  const isDarkMode = useRecoilValue(isDarkModeState);
   const { location } = useURLParse();
 
   return (

@@ -1,7 +1,8 @@
 import styled from "@emotion/styled";
 import { useMediaQuery } from "@mui/material";
 import useURLParse from "@/hooks/useURLParse";
-import useThemeModeDetect from "@/hooks/useThemeModeDetect";
+import { useRecoilValue } from "recoil";
+import { isDarkModeState } from "@/utils/atoms";
 
 const IntroSectionLayout = styled.div`
   display: flex;
@@ -94,7 +95,7 @@ const Body = styled.div`
 export default function IntroSection(props) {
   const match480 = useMediaQuery("(max-width:480px)");
   const { isSuwon } = useURLParse();
-  const isDarkMode = useThemeModeDetect();
+  const isDarkMode = useRecoilValue(isDarkModeState);
 
   return (
     <>

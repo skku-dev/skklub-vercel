@@ -9,3 +9,8 @@ export const likedClubState = atom({
   key: "likedClubState",
   default: [],
 });
+
+export const isDarkModeState = atom({
+  key: "isDarkModeState",
+  default: true,
+});

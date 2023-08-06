@@ -15,10 +15,9 @@ import {
   CAROUSEL_COMMENT_SUWON,
   CAROUSEL_COMMENT_SEOUL,
 } from "@/utils/constants";
-import { useSetRecoilState } from "recoil";
-import { categoryState } from "@/utils/atoms";
+import { useRecoilValue, useSetRecoilState } from "recoil";
+import { categoryState, isDarkModeState } from "@/utils/atoms";
 import Image from "next/image";
-import useThemeModeDetect from "@/hooks/useThemeModeDetect";
 
 const CarouselWrapperWithNavBtn = styled.div`
   width: auto;
@@ -135,7 +134,7 @@ export default function ClubCarousel() {
   const router = useRouter();
   const pathname = usePathname();
   const setCategory = useSetRecoilState(categoryState);
-  const IsDarkMode = useThemeModeDetect();
+  const IsDarkMode = useRecoilValue(isDarkModeState);
 
   const handleClickCard = (clickedCategory) => {
     setCategory(clickedCategory);

@@ -6,7 +6,8 @@ import { getNoticeListwithRole } from "@/utils/fetch";
 import NoticeTableHeader from "./NoticeTableHeader";
 import NoticeTablePagination from "./NoticeTablePagination";
 import { useRouter } from "next/navigation";
-import useThemeModeDetect from "@/hooks/useThemeModeDetect";
+import { useRecoilValue } from "recoil";
+import { isDarkModeState } from "@/utils/atoms";
 
 const TableWrapper = styled.div`
   width: 100%;
@@ -132,7 +133,7 @@ export default function NoticeTableBody({ role }) {
     e.preventDefault();
     setPage(value);
   };
-  const isDarkMode = useThemeModeDetect();
+  const isDarkMode = useRecoilValue(isDarkModeState);
 
   return (
     <TableWrapper isDarkMode={isDarkMode}>

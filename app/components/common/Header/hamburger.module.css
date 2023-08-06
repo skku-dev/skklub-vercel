@@ -1,23 +1,22 @@
-@media (prefers-color-scheme: light) {
+/* @media (prefers-color-scheme: light) {
   .menutrigger span {
     background-color: #585858;
   }
   .menutrigger.active7 span {
     background-color: #585858;
   }
-
 }
 
 @media (prefers-color-scheme: dark) {
   .menutrigger span {
     background-color: #fff;
+    color: #fff;
   }
   .menutrigger.active7 span {
     background-color: #fff;
+    color: #fff;
   }
-
-}
-
+} */
 
 .menutrigger,
 .menutrigger span {
@@ -55,8 +54,6 @@
 .menutrigger span:nth-of-type(4) {
   display: none;
 }
-
-
 
 .menutrigger.type7 span:nth-of-type(1) {
   -webkit-animation: menu-bar07-01 0.75s forwards;

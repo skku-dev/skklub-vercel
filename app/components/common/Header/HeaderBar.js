@@ -8,10 +8,15 @@ import { useState } from "react";
 import { useMediaQuery } from "@mui/material";
 import styles from "./hamburger.module.css";
 import Link from "next/link";
-import { useSetRecoilState } from "recoil";
-import { categoryState } from "@/utils/atoms";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import { categoryState, isDarkModeState } from "@/utils/atoms";
 import CampusSwitch from "../CampusSwitch/CampusSwitch";
-import useThemeModeDetect from "@/hooks/useThemeModeDetect";
+import FormGroup from "@mui/material/FormGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Switch, { SwitchProps } from "@mui/material/Switch";
+import Stack from "@mui/material/Stack";
+import Typography from "@mui/material/Typography";
+import ModeSwitch from "./ModeSwitch";
 
 const HeaderWrap = styled.div`
   position: fixed;
@@ -164,13 +169,14 @@ export default function HeaderBar({ location, isSuwon, type }) {
   const toggleSide = (e) => {
     setOpen(true);
   };
-  const isDarkMode = useThemeModeDetect();
+  const [isDarkMode, setIsDarkMode] = useRecoilState(isDarkModeState);
 
   const [isSearchVisible, setIsSearchVisible] = useState(false);
   const handleSearchClick = () => {
     setIsSearchVisible(!isSearchVisible);
   };
 
+  const match1023 = useMediaQuery("(max-width:1023px)");
   const match760 = useMediaQuery("(max-width:760px)");
 
   const navItems = [
@@ -197,6 +203,16 @@ export default function HeaderBar({ location, isSuwon, type }) {
       check: "student-org",
     },
   ];
+
+  const handleModeSwitchToggle = (event) => {
+    if (event.target.checked) {
+      window.localStorage.setItem("skklubMode", "dark");
+    } else {
+      window.localStorage.setItem("skklubMode", "light");
+    }
+    setIsDarkMode(event.target.checked);
+  };
+
   return (
     <>
       <HeaderWrap isDarkMode={isDarkMode}>
@@ -215,6 +231,13 @@ export default function HeaderBar({ location, isSuwon, type }) {
           </NavWrap>
 
           <IconButtonsWrap>
+            {!match1023 && (
+              <ModeSwitch
+                sx={{ m: 1 }}
+                checked={isDarkMode}
+                onChange={handleModeSwitchToggle}
+              />
+            )}
             {type !== "notices" && !match760 && isNaN(type) && <CampusSwitch />}
             <IconButton onClick={handleSearchClick}>
               {isSearchVisible ? (
@@ -241,9 +264,21 @@ export default function HeaderBar({ location, isSuwon, type }) {
                 }`}
                 onClick={toggleSide}
               >
-                <span></span>
-                <span></span>
-                <span></span>
+                <span
+                  style={{
+                    backgroundColor: isDarkMode ? "#fff" : "#585858",
+                  }}
+                ></span>
+                <span
+                  style={{
+                    backgroundColor: isDarkMode ? "#fff" : "#585858",
+                  }}
+                ></span>
+                <span
+                  style={{
+                    backgroundColor: isDarkMode ? "#fff" : "#585858",
+                  }}
+                ></span>
               </IconButton>
             </HamburgerWrap>
           </IconButtonsWrap>

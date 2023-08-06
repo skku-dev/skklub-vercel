@@ -6,8 +6,9 @@ import { useQuery } from "@tanstack/react-query";
 import NoticeBanner from "@/app/components/notices/NoticeBanner";
 import styled from "@emotion/styled";
 import { getNoticeDetail } from "@/utils/fetch";
-import useThemeModeDetect from "@/hooks/useThemeModeDetect";
 import NoticePopover from "@/app/components/notices/NoticePopover";
+import { useRecoilValue } from "recoil";
+import { isDarkModeState } from "@/utils/atoms";
 
 const PageWrapper = styled.div`
   max-width: 1050px;
@@ -220,7 +221,7 @@ export default function NoticePage() {
     setAnchorEl(event.currentTarget);
   };
 
-  const isDarkMode = useThemeModeDetect();
+  const isDarkMode = useRecoilValue(isDarkModeState);
 
   return (
     <>

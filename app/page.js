@@ -5,19 +5,26 @@ import styled from "@emotion/styled";
 import darkLogo from "@/public/assets/images/skklub_logo_dark.png";
 import lightLogo from "@/public/assets/images/skklub_logo_light.png";
 import LocationSelectBtn from "./components/start/LocationSelectBtn";
-import useThemeModeDetect from "@/hooks/useThemeModeDetect";
+import { useRecoilValue } from "recoil";
+import { isDarkModeState } from "@/utils/atoms";
 
 const StartPageWrapper = styled.div`
   width: 100vw;
   height: 100vh;
   position: relative;
-  /* background-image: url("/assets/animations/web_loading.gif");
+  background-image: ${(props) =>
+    props.isDarkMode
+      ? 'url("/assets/animations/web_loading.gif")'
+      : 'url("/assets/animations/web_loading_light.gif")'};
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   @media (max-width: 425px) {
-    background-image: url("/assets/animations/mobile-loading.gif");
-  } */
+    background-image: ${(props) =>
+      props.isDarkMode
+        ? 'url("/assets/animations/mobile_loading_light.gif")'
+        : 'url("/assets/animations/mobile_loading.gif")'};
+  }
   overflow: hidden;
 `;
 
@@ -91,15 +98,24 @@ const BtnContainer = styled.div`
 `;
 
 export default function Home() {
-  const isDarkMode = useThemeModeDetect();
+  const isDarkMode = useRecoilValue(isDarkModeState);
+
+  console.log(isDarkMode);
   return (
-    <StartPageWrapper>
-      <VideoWrapper>
+    <StartPageWrapper isDarkMode={isDarkMode}>
+      {/* <VideoWrapper>
         <BgVideo autoPlay muted>
-          <source src="/assets/animations/web_loading.mkv" type="video/mp4" />
+          <source
+            src={
+              isDarkMode
+                ? "/assets/animations/web_loading_light.mkv"
+                : "/assets/animations/web_loading_dark.mkv"
+            }
+            type="video/mp4"
+          />
           Browser not supported
         </BgVideo>
-      </VideoWrapper>
+      </VideoWrapper> */}
       <MainContents>
         <Phrase>성균관대학교 동아리를 한눈에!</Phrase>
         <Image
