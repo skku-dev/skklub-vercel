@@ -165,11 +165,12 @@ function NavButton({ item, isDarkMode, isSuwon, type }) {
 }
 
 export default function HeaderBar({ location, isSuwon, type }) {
+  const isDarkMode = useRecoilValue(isDarkModeState);
+
   const [isOpen, setOpen] = useState(false);
   const toggleSide = (e) => {
     setOpen(true);
   };
-  const [isDarkMode, setIsDarkMode] = useRecoilState(isDarkModeState);
 
   const [isSearchVisible, setIsSearchVisible] = useState(false);
   const handleSearchClick = () => {
@@ -204,15 +205,6 @@ export default function HeaderBar({ location, isSuwon, type }) {
     },
   ];
 
-  const handleModeSwitchToggle = (event) => {
-    if (event.target.checked) {
-      window.localStorage.setItem("skklubMode", "dark");
-    } else {
-      window.localStorage.setItem("skklubMode", "light");
-    }
-    setIsDarkMode(event.target.checked);
-  };
-
   return (
     <>
       <HeaderWrap isDarkMode={isDarkMode}>
@@ -231,13 +223,6 @@ export default function HeaderBar({ location, isSuwon, type }) {
           </NavWrap>
 
           <IconButtonsWrap>
-            {!match1023 && (
-              <ModeSwitch
-                sx={{ m: 1 }}
-                checked={isDarkMode}
-                onChange={handleModeSwitchToggle}
-              />
-            )}
             {type !== "notices" && !match760 && isNaN(type) && <CampusSwitch />}
             <IconButton onClick={handleSearchClick}>
               {isSearchVisible ? (
@@ -281,6 +266,7 @@ export default function HeaderBar({ location, isSuwon, type }) {
                 ></span>
               </IconButton>
             </HamburgerWrap>
+            {!match1023 && <ModeSwitch />}
           </IconButtonsWrap>
         </HeaderInner>
       </HeaderWrap>

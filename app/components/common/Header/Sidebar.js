@@ -14,7 +14,7 @@ const NavWrap = styled.div`
   flex-direction: column;
   justify-content: space-evenly;
   align-items: end;
-  height: 400px;
+  height: 450px;
   font-size: 1.1rem;
   font-weight: 500;
   margin-top: 30px;
@@ -136,13 +136,7 @@ export default function Sidebar({ isOpen, setOpen, navItems }) {
               </Link>
             )}
           </CampusWrap>
-          {match1023 && (
-            <ModeSwitch
-              sx={{ m: 1 }}
-              checked={isDarkMode}
-              onChange={handleModeSwitchToggle}
-            />
-          )}
+          {match1023 && <ModeSwitch />}
         </NavWrap>
       </SidebarInner>
     </>
