@@ -7,24 +7,16 @@ import lightLogo from "@/public/assets/images/skklub_logo_light.png";
 import LocationSelectBtn from "./components/start/LocationSelectBtn";
 import { useRecoilValue } from "recoil";
 import { isDarkModeState } from "@/utils/atoms";
+import darkWebGif from "@/public/assets/animations/web_loading_dark.gif";
+import lightWebGif from "@/public/assets/animations/web_loading_light.gif";
+import darkMobGif from "@/public/assets/animations/mob_loading_dark.gif";
+import lightMobGif from "@/public/assets/animations/mob_loading_light.gif";
+import { useMediaQuery } from "@mui/material";
 
 const StartPageWrapper = styled.div`
   width: 100vw;
   height: 100vh;
   position: relative;
-  background-image: ${(props) =>
-    props.isDarkMode
-      ? 'url("/assets/animations/web_loading.gif")'
-      : 'url("/assets/animations/web_loading_light.gif")'};
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  @media (max-width: 425px) {
-    background-image: ${(props) =>
-      props.isDarkMode
-        ? 'url("/assets/animations/mobile_loading_light.gif")'
-        : 'url("/assets/animations/mobile_loading.gif")'};
-  }
   overflow: hidden;
 `;
 
@@ -63,6 +55,7 @@ const Phrase = styled.h2`
   line-height: normal;
   margin: 0;
   margin-bottom: 20px;
+  word-break: keep-all;
   @media (max-width: 425px) {
     font-size: 1.5rem;
   }
@@ -99,23 +92,22 @@ const BtnContainer = styled.div`
 
 export default function Home() {
   const isDarkMode = useRecoilValue(isDarkModeState);
-
-  console.log(isDarkMode);
+  const match425 = useMediaQuery("(max-width:425px)");
   return (
     <StartPageWrapper isDarkMode={isDarkMode}>
-      {/* <VideoWrapper>
-        <BgVideo autoPlay muted>
-          <source
-            src={
-              isDarkMode
-                ? "/assets/animations/web_loading_light.mkv"
-                : "/assets/animations/web_loading_dark.mkv"
-            }
-            type="video/mp4"
-          />
-          Browser not supported
-        </BgVideo>
-      </VideoWrapper> */}
+      {match425 ? (
+        <Image
+          src={isDarkMode ? darkMobGif : lightMobGif}
+          alt=""
+          style={{ height: "100vh", width: "100vw" }}
+        />
+      ) : (
+        <Image
+          src={isDarkMode ? darkWebGif : lightWebGif}
+          alt=""
+          style={{ height: "100vh", width: "100vw" }}
+        />
+      )}
       <MainContents>
         <Phrase>성균관대학교 동아리를 한눈에!</Phrase>
         <Image
