@@ -7,6 +7,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 
 const CategoryWrapper = styled.div`
   max-width: 1200px;
+  width: 100%;
   display: flex;
   justify-content: center;
   margin: 0 auto;
@@ -15,6 +16,9 @@ const CategoryWrapper = styled.div`
   overflow-x: scroll;
   gap: 20px;
 
+  ::-webkit-scrollbar {
+    display: none;
+  }
   @media (max-width: 976px) {
     justify-content: flex-start;
   }

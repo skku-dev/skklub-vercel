@@ -58,6 +58,7 @@ const CampusWrap = styled.div`
   color: ${(props) => (props.campus ? "#50CFB1" : "#80A4FF")};
   font-size: 1.1rem;
   font-weight: 500;
+  text-align: end;
 `;
 
 export default function Sidebar({ isOpen, setOpen, navItems }) {

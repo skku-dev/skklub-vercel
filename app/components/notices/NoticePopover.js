@@ -56,6 +56,14 @@ export default function NoticePopover({ anchorEl, setAnchorEl, files }) {
                   <ListItemText
                     primary={file.originalName}
                     onClick={() => handleAttatchmentClick(file)}
+                    sx={{
+                      whiteSpace: "nowrap",
+                      "& span": {
+                        width: "95%",
+                        overflow: "hidden",
+                        textOverflow: "ellipsis",
+                      },
+                    }}
                   />
                 </ListItemButton>
                 <ListItemIcon>
