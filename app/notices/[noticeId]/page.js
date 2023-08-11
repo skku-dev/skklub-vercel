@@ -205,7 +205,6 @@ export default function NoticePage() {
   const { isLoading, data } = useQuery({
     queryKey: ["notice-detail", params],
     queryFn: () => getNoticeDetail(params.noticeId),
-    onSuccess: (data) => console.log(data),
   });
   const router = useRouter();
   const pushToNotices = () => {

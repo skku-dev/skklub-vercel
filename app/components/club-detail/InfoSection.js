@@ -42,7 +42,6 @@ const IGAdressContainer = styled.div`
 `;
 
 export default function InfoSection({ clubData }) {
-  console.log(clubData);
   const isIGUrl = (url) => (url ? url.includes("instagram") : false);
   const isIGAccount = (url) => (url ? url[0] === "@" : false);
   const getIGID = (url) => {

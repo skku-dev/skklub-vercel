@@ -101,7 +101,6 @@ export default function Searchbar({ setIsSearchVisible, isDarkMode }) {
   const { isLoading, data } = useQuery({
     queryKey: ["searchKeywords", searchTerm],
     queryFn: () => getPartiallyMatchedSearchResults({ searchTerm, isSuwon }),
-    // onSuccess: (data) => console.log(data),
   });
 
   const handleChange = (e) => {

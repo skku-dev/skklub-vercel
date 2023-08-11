@@ -151,16 +151,14 @@ function NavButton({ item, isDarkMode, isSuwon, type }) {
     setCategory("전체보기");
   };
   return (
-    <Link href={`/${item.path}`}>
-      <NavButtonFont
-        isDarkMode={isDarkMode}
-        isSuwon={isSuwon}
-        isMatch={type === item.check}
-        onClick={onLinkClick}
-      >
-        {item.name}
-      </NavButtonFont>
-    </Link>
+    <NavButtonFont
+      isDarkMode={isDarkMode}
+      isSuwon={isSuwon}
+      isMatch={type === item.check}
+      onClick={onLinkClick}
+    >
+      <Link href={`/${item.path}`}>{item.name}</Link>
+    </NavButtonFont>
   );
 }
 

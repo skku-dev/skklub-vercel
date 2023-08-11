@@ -6,12 +6,13 @@ import darkLogo from "@/public/assets/images/skklub_logo_dark.png";
 import lightLogo from "@/public/assets/images/skklub_logo_light.png";
 import LocationSelectBtn from "./components/start/LocationSelectBtn";
 import { useRecoilValue } from "recoil";
-import { isDarkModeState } from "@/utils/atoms";
+import { initialIsLoadingState, isDarkModeState } from "@/utils/atoms";
 import darkWebGif from "@/public/assets/animations/web_loading_dark.gif";
 import lightWebGif from "@/public/assets/animations/web_loading_light.gif";
 import darkMobGif from "@/public/assets/animations/mob_loading_dark.gif";
 import lightMobGif from "@/public/assets/animations/mob_loading_light.gif";
 import { useMediaQuery } from "@mui/material";
+import LoadingLayout from "./layouts/loading/LoadingLayout";
 
 const StartPageWrapper = styled.div`
   width: 100vw;
@@ -92,7 +93,13 @@ const BtnContainer = styled.div`
 
 export default function Home() {
   const isDarkMode = useRecoilValue(isDarkModeState);
+
+  const initialIsLoading = useRecoilValue(initialIsLoadingState);
   const match425 = useMediaQuery("(max-width:425px)");
+
+  if (initialIsLoading) {
+    return <LoadingLayout />;
+  }
   return (
     <StartPageWrapper isDarkMode={isDarkMode}>
       {match425 ? (

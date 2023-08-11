@@ -57,7 +57,6 @@ export default function ModeSwitch() {
 
   const handleModeSwitchToggle = () => {
     if (!isDarkMode) {
-      console.log("clicked");
       window.localStorage.setItem("skklubMode", "dark");
     } else {
       window.localStorage.setItem("skklubMode", "light");
@@ -69,4 +68,4 @@ export default function ModeSwitch() {
       {isDarkMode ? <LightModeIcon /> : <DarkModeIcon />}
     </IconButton>
   );
-};
+}

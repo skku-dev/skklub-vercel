@@ -40,7 +40,7 @@ const Title = styled.div`
 
 export default function UpperBanner() {
   const { isSuwon, type } = useURLParse();
-  console.log(type);
+
   const convertEngTypeToKo = (type) => {
     if (type === "central-clubs") {
       return "중앙동아리";

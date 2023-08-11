@@ -66,7 +66,6 @@ export const getNoticesFromKeyword = async ({ keyword }) => {
 };
 
 export const getNoticeFiles = async (filename) => {
-  console.log(filename);
   const response = await fetch(
     `${BASE_URL}/notice/file?fileSavedName=${filename}`
   );
