@@ -21,7 +21,7 @@ const NavWrap = styled.div`
 `;
 
 const NavButtonFont = styled.div`
-  font-family: GmarketSansBold;
+  font-family: GmarketSansMedium;
   color: ${(props) =>
     props.isMatch
       ? props.isSuwon
@@ -120,6 +120,7 @@ export default function Sidebar({ isOpen, setOpen, navItems }) {
               isDarkMode={isDarkMode}
               isSuwon={isSuwon}
               isMatch={type === item.check}
+              key={item.name}
             >
               <Link href={`/${item.path}`} key={item.name}>
                 {item.name}
