@@ -8,14 +8,9 @@ import { useState } from "react";
 import { useMediaQuery } from "@mui/material";
 import styles from "./hamburger.module.css";
 import Link from "next/link";
-import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 import { categoryState, isDarkModeState } from "@/utils/atoms";
 import CampusSwitch from "../CampusSwitch/CampusSwitch";
-import FormGroup from "@mui/material/FormGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Switch, { SwitchProps } from "@mui/material/Switch";
-import Stack from "@mui/material/Stack";
-import Typography from "@mui/material/Typography";
 import ModeSwitch from "./ModeSwitch";
 
 const HeaderWrap = styled.div`
@@ -75,6 +70,7 @@ const HomeImgWrap = styled.div`
 const NavButtonFont = styled.div`
   font-weight: 600;
   line-height: 16px;
+  font-family: GmarketSansBold;
 
   color: ${(props) =>
     props.isMatch
