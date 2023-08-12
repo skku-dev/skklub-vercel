@@ -35,6 +35,9 @@ const HeaderInner = styled.div`
   justify-content: space-between;
   align-items: center;
 
+  @media (max-width: 1348px) {
+    width: 100%;
+  }
   @media (max-width: 1024px) {
     width: 90%;
   }
@@ -101,6 +104,7 @@ const NavWrap = styled.div`
   width: 50%;
   min-width: 500px;
   justify-content: space-between;
+  /* margin: 0 20px; */
 
   @media (max-width: 1023px) {
     display: none;
