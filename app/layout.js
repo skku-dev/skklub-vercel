@@ -7,7 +7,8 @@ import RecoilRootProvider from "./RecoilRootProvider";
 export const metadata = {
   generator: "SKKUD",
   title: "SKKLUB",
-  description: "성균관대학교 중앙동아리들을 한번에 볼 수 있는 플랫폼, 스클럽.",
+  description:
+    "SKKLUB은 우리 학교의 모든 동아리/학회/단체를 한눈에 볼 수 있는 플랫폼입니다",
   applicationName: "SKKLUB",
   referrer: "origin-when-cross-origin",
   keywords: ["Next.js", "Spring", "SKKUD", "SKKU", "SKKLUB"],
@@ -20,20 +21,14 @@ export const metadata = {
   openGraph: {
     title: "SKKLUB",
     description:
-      "성균관대학교 중앙동아리들을 한번에 볼 수 있는 플랫폼, 스클럽.",
+      "성균관대학교 동아리들을 한번에 볼 수 있는 플랫폼, 스클럽.",
     url: "https://skklub-vercel.vercel.app/",
     siteName: "SKKLUB",
     images: [
       {
-        url: "https://nextjs.org/og.png",
-        width: 800,
-        height: 600,
-      },
-      {
-        url: "https://nextjs.org/og-alt.png",
-        width: 1800,
-        height: 1600,
-        alt: "My custom alt",
+        url: "/assets/images/skklub.png",
+        width: 3152,
+        height: 1776,
       },
     ],
     locale: "en_US",
