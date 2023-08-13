@@ -64,7 +64,7 @@ const SubTitleWrapper = styled.div`
 
 const SubTitle = styled.div`
   text-align: center;
-  font-family: Pretendard;
+  font-family: Pretendard-Regular;
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
@@ -94,7 +94,7 @@ const Divider = styled.hr`
 `;
 
 const Attachment = styled.div`
-  font-family: Pretendard;
+  font-family: Pretendard-Regular;
   font-size: 16px;
   font-style: normal;
   font-weight: 700;
@@ -116,7 +116,7 @@ const Attachment = styled.div`
 const ContentBox = styled.div`
   padding: 0 25px;
   text-align: left;
-  font-family: Pretendard;
+  font-family: Pretendard-Regular;
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
@@ -153,7 +153,7 @@ const Navigator = styled.div`
 const NavLabel = styled.div`
   text-align: left;
   margin-right: 30px;
-  font-family: Pretendard;
+  font-family: Pretendard-Regular;
   font-size: 1.125rem;
   font-weight: 700;
   line-height: 29px;
@@ -168,7 +168,7 @@ const NavLabel = styled.div`
 const NextTitle = styled.div`
   width: 100%;
   text-align: left;
-  font-family: Pretendard;
+  font-family: Pretendard-Regular;
   font-size: 1rem;
   font-style: normal;
   font-weight: 600;
@@ -191,7 +191,7 @@ const BackToListBtn = styled.div`
   overflow: hidden;
   text-align: center;
   text-overflow: ellipsis;
-  font-family: Pretendard;
+  font-family: Pretendard-Regular;
   font-size: 1rem;
   font-style: normal;
   font-weight: 600;

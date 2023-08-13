@@ -5,7 +5,7 @@ const NoticeTitle = styled.div`
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  font-family: Pretendard;
+  font-family: Pretendard-Regular;
   font-size: 14px;
   font-style: normal;
   font-weight: 600;

@@ -77,7 +77,7 @@ const DeptDescription = styled.div`
   width: 75%;
   margin: 8px;
   padding: 21px 38px;
-  font-family: pretendard;
+  font-family: Pretendard-Regular;
   border-radius: 12px;
   font-size: 16px;
   font-weight: 500;

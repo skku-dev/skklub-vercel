@@ -19,11 +19,9 @@ const RTh = styled.th`
   }
   border: 1px solid;
   border-bottom: 0.5px;
-  padding-top: 14px;
-  padding-bottom: 14px;
-  font-family: Pretendard;
+  padding: 14px;
+  font-family: Pretendard-Regular;
   font-size: 22px;
-  font-style: normal;
   font-weight: 700;
   line-height: 160%;
   &:first-of-type {
@@ -45,7 +43,7 @@ const RTd = styled.td`
   padding-top: 33px;
   padding-bottom: 40px;
   text-align: center;
-  font-family: Pretendard;
+  font-family: Pretendard-Regular;
   font-size: 16px;
   font-style: normal;
   font-weight: 500;

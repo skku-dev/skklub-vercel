@@ -25,7 +25,7 @@ const RTh = styled.th`
   border: 1px solid;
   padding-top: 14px;
   padding-bottom: 14px;
-  font-family: Pretendard;
+  font-family: Pretendard-Regular;
   font-style: normal;
   line-height: 160%;
   height: 76px;
@@ -50,7 +50,7 @@ const RTd = styled.td`
   padding-top: 33px;
   padding-bottom: 40px;
   text-align: center;
-  font-family: Pretendard;
+  font-family: Pretendard-Regular;
   font-style: normal;
   line-height: 160%; /* 25.6px */
   font-size: 14px;

@@ -43,7 +43,7 @@ const Category = styled.button`
       : props.theme.palette.text.primary};
   text-align: center;
   text-overflow: ellipsis;
-  font-family: Pretendard;
+  font-family: Pretendard-Regular;
   font-size: 1rem;
   font-style: normal;
   font-weight: 600;
@@ -62,7 +62,7 @@ const Category = styled.button`
     padding: 10px 21px;
     text-align: center;
     text-overflow: ellipsis;
-    font-family: Pretendard;
+    font-family: Pretendard-Regular;
     font-size: 0.875rem;
     font-style: normal;
     font-weight: 600;

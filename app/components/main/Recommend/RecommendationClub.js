@@ -35,7 +35,7 @@ const ClubType = styled.div`
   margin-bottom: 20px;
   color: #303030;
   text-align: center;
-  font-family: Pretendard;
+  font-family: Pretendard-Regular;
   font-size: 14px;
   font-style: normal;
   font-weight: 500;

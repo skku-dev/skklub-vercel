@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 
 const ThemeSubtitle = styled.div`
   color: #303030;
-  font-family: Pretendard;
+  font-family: Pretendard-Regular;
   font-size: 1rem;
   font-style: normal;
   font-weight: 500;

@@ -95,7 +95,7 @@ const Name = styled.div`
   font-weight: 500;
 `;
 const Content = styled.div`
-  font-family: Pretendard;
+  font-family: Pretendard-Regular;
   margin-top: 30px;
   text-align: center;
 `;
@@ -107,7 +107,7 @@ const InfoText = styled.div`
   text-align: center;
   word-break: keep-all;
   font-size: 18px;
-  font-family: Pretendard;
+  font-family: Pretendard-Regular;
   @media (max-width: 425px) {
     font-size: 14px;
   }

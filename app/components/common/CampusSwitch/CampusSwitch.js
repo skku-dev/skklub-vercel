@@ -18,7 +18,7 @@ const ToggleContainer = styled.div`
     background-color: #434c4f;
     color: #a7abaf;
     text-align: center;
-    font-family: Pretendard;
+    font-family: Pretendard-Regular;
     font-size: 14px;
     font-style: normal;
     font-weight: 600;
@@ -51,7 +51,7 @@ const ToggleContainer = styled.div`
     transition: 0.5s;
     color: #009672;
     text-align: center;
-    font-family: Pretendard;
+    font-family: Pretendard-Regular;
     font-size: 14px;
     font-style: normal;
     font-weight: 600;

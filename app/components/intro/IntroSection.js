@@ -81,7 +81,7 @@ const RedSpan = styled.span`
 `;
 
 const Body = styled.div`
-  font-family: pretendard;
+  font-family: Pretendard-Regular;
   font-size: 1rem;
   line-height: 24px;
   font-weight: 500;

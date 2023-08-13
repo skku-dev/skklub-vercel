@@ -19,7 +19,7 @@ const InfoContentRow = styled.div`
 
 const BoldLabel = styled.div`
   width: 40%;
-  font-family: Pretendard;
+  font-family: Pretendard-Regular;
   font-size: 18px;
   font-style: normal;
   font-weight: 700;
@@ -29,7 +29,7 @@ const BoldLabel = styled.div`
 
 const Label = styled.div`
   width: 60%;
-  font-family: Pretendard;
+  font-family: Pretendard-Regular;
   font-size: 16px;
   font-style: normal;
   font-weight: 500;

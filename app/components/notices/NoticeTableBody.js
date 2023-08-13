@@ -49,7 +49,7 @@ const NoticeRowItem = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: pretendard;
+  font-family: Pretendard-Regular;
 
   &.first-row {
     flex: 0.5;

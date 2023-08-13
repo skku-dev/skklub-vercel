@@ -27,7 +27,7 @@ const NoticeThumbnail = styled.div`
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
   overflow: hidden;
-  font-family: Pretendard;
+  font-family: Pretendard-Regular;
   font-size: 14px;
   font-style: normal;
   font-weight: 500;

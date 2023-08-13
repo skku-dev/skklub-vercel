@@ -7,7 +7,7 @@ const DetailContent = styled.div`
   margin-top: 1.5rem;
   width: 100%;
   white-space: pre-line;
-  font-family: Pretendard;
+  font-family: Pretendard-Regular;
   font-size: 16px;
   font-weight: 500;
   line-height: 26px;

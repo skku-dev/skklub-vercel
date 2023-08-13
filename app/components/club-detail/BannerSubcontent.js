@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const BannerSubContent = styled.div`
   color: #fff;
-  font-family: Pretendard;
+  font-family: Pretendard-Regular;
   font-size: 1rem;
   font-style: normal;
   font-weight: 500;
@@ -31,7 +31,7 @@ const ClubPageNaviagateBtn = styled.button`
   color: #151717;
   text-align: center;
   text-overflow: ellipsis;
-  font-family: Pretendard;
+  font-family: Pretendard-Regular;
   font-size: 1rem;
   font-style: normal;
   font-weight: 600;

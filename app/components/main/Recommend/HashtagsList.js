@@ -14,7 +14,7 @@ const Hashtag = styled.div`
   border-radius: 99px;
   background: #fff;
   color: #303030;
-  font-family: Pretendard;
+  font-family: Pretendard-Regular;
   font-size: 15px;
   font-style: normal;
   font-weight: 600;

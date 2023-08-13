@@ -51,7 +51,7 @@ const ComingSoon = styled.div`
   align-items: center;
   border-radius: 46px;
   color: #fff;
-  font-family: Pretendard;
+  font-family: Pretendard-Regular;
   font-size: 18px;
   font-style: normal;
   font-weight: 700;

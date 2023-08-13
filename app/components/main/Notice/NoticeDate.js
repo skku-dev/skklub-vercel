@@ -4,7 +4,7 @@ const NoticeDate = styled.div`
   overflow: hidden;
   color: ${({ theme }) => theme.palette.text.secondary};
   text-overflow: ellipsis;
-  font-family: Pretendard;
+  font-family: Pretendard-Regular;
   font-size: 0.75rem;
   font-style: normal;
   font-weight: 500;

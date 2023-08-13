@@ -67,7 +67,7 @@ const RecruitStatus = styled.div`
   justify-content: center;
   align-items: center;
   color: #fff;
-  font-family: Pretendard;
+  font-family: Pretendard-Regular;
   font-size: 1rem;
   font-style: normal;
   font-weight: 700;
@@ -81,7 +81,7 @@ const RecruitStatus = styled.div`
 
 const PlaceInfo = styled.div`
   color: #fff;
-  font-family: Pretendard;
+  font-family: Pretendard-Regular;
   font-size: 1.125rem;
   font-style: normal;
   font-weight: 700;
