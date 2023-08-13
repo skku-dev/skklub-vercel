@@ -3,6 +3,13 @@ import Categories from "@/app/components/cardBoard/Categories";
 import UpperBanner from "@/app/components/common/UpperBanner";
 import styled from "@emotion/styled";
 
+const CardBoardWrapper = styled.div`
+  min-height: calc(100vh - 170px);
+  @media (max-width: 768px) {
+    min-height: calc(100vh - 148px);
+  }
+`;
+
 const MainSection = styled.div`
   padding-left: 1rem;
   padding-right: 1rem;
@@ -11,12 +18,12 @@ const MainSection = styled.div`
 
 export default function CardBoardLayout({ children }) {
   return (
-    <>
+    <CardBoardWrapper>
       <UpperBanner />
       <MainSection>
         <Categories />
         {children}
       </MainSection>
-    </>
+    </CardBoardWrapper>
   );
 }

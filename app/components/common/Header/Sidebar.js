@@ -18,10 +18,10 @@ const NavWrap = styled.div`
   font-size: 1.1rem;
   font-weight: 500;
   margin-top: 30px;
+  font-family: GmarketSansMedium;
 `;
 
 const NavButtonFont = styled.div`
-  font-family: GmarketSansMedium;
   color: ${(props) =>
     props.isMatch
       ? props.isSuwon
@@ -60,6 +60,9 @@ const CampusWrap = styled.div`
   font-size: 1.1rem;
   font-weight: 500;
   text-align: end;
+  > a {
+    word-break: keep-all;
+  }
 `;
 
 export default function Sidebar({ isOpen, setOpen, navItems }) {
