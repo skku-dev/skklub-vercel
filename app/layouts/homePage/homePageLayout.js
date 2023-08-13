@@ -9,7 +9,6 @@ import BorrowSection from "@/app/components/main/Borrow/BorrowSection";
 import MobileRecommendSection from "@/app/components/main/Recommend/MobileRecommendSection";
 import MobileNoticeSection from "@/app/components/main/Notice/MobileNoticeSection";
 import ClubCarousel from "@/app/components/main/ClubCarousel";
-import useURLParse from "@/hooks/useURLParse";
 import useScreenHeight from "@/hooks/useScreenHeight";
 import Fadeinout from "@/app/components/main/Fadeinout";
 
@@ -53,14 +52,14 @@ const ContentWrapper = styled.div`
   width: 100%;
   max-width: 990px;
   margin: 0 auto;
-  padding-bottom: 14rem;
+  padding-bottom: 100px;
   @media (max-width: 990px) {
     padding-left: 16px;
     padding-right: 16px;
   }
   @media (max-width: 425px) {
     padding: 0 1rem;
-    padding-bottom: 4rem;
+    padding-bottom: 100px;
   }
 `;
 
@@ -68,7 +67,6 @@ export default function HomePageLayout() {
   const matches_768 = useMediaQuery("(max-width:768px)");
   const matches_680 = useMediaQuery("(max-width:680px)");
   const [homeContainerHeight] = useScreenHeight();
-  const { isSuwon } = useURLParse();
   const [showFadeinout, setFadeinout] = useState(true);
 
   useEffect(() => {

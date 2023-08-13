@@ -17,7 +17,7 @@ const ClubDetailContent = styled.div`
   margin: 0 auto;
   margin-top: 3rem;
   gap: 30px;
-  margin-bottom: 300px;
+  margin-bottom: 100px;
   @media (max-width: 1200px) {
     padding: 0 1rem;
   }
