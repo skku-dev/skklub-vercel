@@ -3,6 +3,7 @@ import { usePathname, useRouter } from "next/navigation";
 import Image from "next/image";
 import { useMediaQuery } from "@mui/material";
 import ClubCardHeart from "./ClubCardHeart";
+import { useEffect } from "react";
 
 const CustomCard = styled.div`
   width: 174px;
@@ -20,7 +21,7 @@ const CardHeader = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: 0.5rem;
-  padding: 0 10px;
+  padding: 0 0px;
 `;
 
 const ClubName = styled.div`
@@ -33,6 +34,7 @@ const ClubName = styled.div`
   white-space: nowrap;
   text-overflow: ellipsis;
   word-break: break-all;
+  
 
   @media (max-width: 425px) {
     font-size: 1.25rem;

@@ -34,7 +34,7 @@ export default function Footer() {
   return (
     location && (
       <FooterWrap isDarkMode={isDarkMode}>
-        SKKLUB - Created and Maintained by 기술지원위원회
+        SKKLUB - Created and Maintained by SKKU.D
       </FooterWrap>
     )
   );

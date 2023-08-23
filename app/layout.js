@@ -44,7 +44,6 @@ export default function RootLayout({ children }) {
 				<html lang="en">
 					<body suppressHydrationWarning={true}>
 						<Header />
-
 						{children}
 						<Analytics />
 						<Footer />

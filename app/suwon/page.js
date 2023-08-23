@@ -1,5 +1,6 @@
-import HomePageLayout from "../layouts/homePage/homePageLayout";
+'use client';
+import HomePageLayout from '../layouts/homePage/homePageLayout';
 
 export default function Suwon() {
-  return <HomePageLayout />;
+	return <HomePageLayout />;
 }
