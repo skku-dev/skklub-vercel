@@ -1,6 +1,6 @@
 export const CATEGORIES_SEOUL = [
   "전체보기",
-  "언행예술",
+  "연행예술",
   "평면예술",
   "봉사",
   "취미교양",
@@ -78,7 +78,7 @@ export const INTRO_DUMMY_DATA = {
 
 export const RECOMMENDATION_COMMENT_SUWON = [
   {
-    category: "언행예술",
+    category: "연행예술",
     description: "넘치는 끼와 에너지를 자유롭게 발산해보세요!",
     hashtags: ["무대", "공연", "축제", "열정"],
   },

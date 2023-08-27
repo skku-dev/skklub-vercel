@@ -17,6 +17,7 @@ const BannerWrapper = styled.div`
 const SubTitle = styled.div`
   color: #fff;
   text-align: center;
+  font-family: GmarketSansMedium;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
@@ -29,6 +30,7 @@ const SubTitle = styled.div`
 `;
 const Title = styled.div`
   color: #fff;
+  font-family: GmarketSansBold;
   font-size: 2rem;
   font-style: normal;
   font-weight: 500;
