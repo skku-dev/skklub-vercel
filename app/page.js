@@ -106,13 +106,15 @@ export default function Home() {
         <Image
           src={isDarkMode ? darkMobGif : lightMobGif}
           alt=""
-          style={{ height: "100vh", width: "100vw" }}
+          fill={true}
+          style={{ objectFit: "cover" }}
         />
       ) : (
         <Image
           src={isDarkMode ? darkWebGif : lightWebGif}
           alt=""
-          style={{ height: "100vh", width: "100vw" }}
+          fill={true}
+          style={{ objectFit: "cover" }}
         />
       )}
       <MainContents>

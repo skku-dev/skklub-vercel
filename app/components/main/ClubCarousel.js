@@ -138,7 +138,7 @@ export default function ClubCarousel() {
     return (
       <CardWrap>
         <StyledCard>
-          <Mp4 autoPlay loop>
+          <Mp4 autoPlay loop muted>
             <source
               src={`/assets/animations/${img}_${
                 IsDarkMode && IsDarkMode ? "dark" : "light"
