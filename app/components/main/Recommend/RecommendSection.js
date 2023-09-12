@@ -39,10 +39,11 @@ export default function RecommendSection() {
   const matches_1024 = useMediaQuery("(max-width:1024px)");
 
   const [category, description, hashtags] = useRandomRecommendation();
-
+  const campus = isSuwon ? "율전" : "명륜";
+  const belongs = category;
   const { data, isLoading } = useQuery({
-    queryFn: () => getClubRecommendation(isSuwon ? "율전" : "명륜", category),
     queryKey: ["club-recommendation", category],
+    queryFn: () => getClubRecommendation(campus, belongs),
     refetchOnWindowFocus: false,
   });
 

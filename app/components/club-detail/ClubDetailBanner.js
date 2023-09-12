@@ -138,7 +138,7 @@ export default function ClubDetailBanner({ clubData }) {
     <BannerWrapper>
       <BannerContent>
         <Image
-          src={`data:image/png;base64,${clubData.logo.bytes}`}
+          src={clubData.logo.url}
           width={match425 ? 100 : 174}
           height={match425 ? 100 : 174}
           alt="CLUB_LOGO"

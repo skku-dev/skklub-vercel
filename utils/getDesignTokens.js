@@ -43,7 +43,7 @@ const getDesignTokens = (mode) => ({
           },
           //다크 카라우셀
           info: {
-            main: "#434C4F",
+            main: "#464E52",
           },
         }),
   },

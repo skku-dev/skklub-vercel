@@ -40,7 +40,10 @@ export default function CardBoard({ cardsData }) {
   const [likedClubs, _] = useClubLike();
 
   const filteredClubs = (category) => {
-    if (category === "전체보기") {
+    if (
+      category === "전체보기" ||
+      category === "나에게는\n어떤 동아리가\n어울릴까"
+    ) {
       return cardsData;
     } else if (category === "하트") {
       return cardsData.filter((card) => likedClubs.includes(card.name));

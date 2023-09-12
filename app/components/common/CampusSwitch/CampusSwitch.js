@@ -98,23 +98,22 @@ export default function CampusSwitch() {
 
   const toggleHandler = async () => {
     setisOn(!isOn);
-    
+    window.scrollTo(0, 0);
+    await new Promise((resolve) => setTimeout(resolve, 750)); // Delay for smooth transition (optional)
     if (isOn) {
-      await new Promise((resolve) => setTimeout(resolve, 750)); // Delay for smooth transition (optional)
       if (type === undefined) {
         router.push(`/seoul`);
       } else {
         router.push(`/seoul/${type}`);
       }
     } else {
-      await new Promise((resolve) => setTimeout(resolve, 750)); // Delay for smooth transition (optional)
       if (type === undefined) {
         router.push(`/suwon`);
       } else {
         router.push(`/suwon/${type}`);
       }
     }
-    window.scrollTo(0, 0);
+    
   };
 
   return (

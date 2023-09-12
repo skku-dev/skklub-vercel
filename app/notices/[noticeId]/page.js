@@ -41,7 +41,7 @@ const Title = styled.div`
   font-size: 28px;
   font-style: normal;
   font-weight: 500;
-  line-height: 28px;
+  line-height: 35px;
   letter-spacing: -0.56px;
   margin-bottom: 1rem;
   word-break: keep-all;
@@ -243,16 +243,16 @@ export default function NoticePage() {
           </SubTitleWrapper>
           <Divider />
           <Attachment onClick={(e) => handleAttachmentClick(e)}>
-            {data && data.extraFileNames.length > 0 && (
+            {data && data.extraFileDownloadDtos.length > 0 && (
               <>
-                첨부파일 <span>({data.extraFileNames.length})</span>
+                첨부파일 <span>({data.extraFileDownloadDtos.length})</span>
               </>
             )}
           </Attachment>
           <NoticePopover
             anchorEl={anchorEl}
             setAnchorEl={setAnchorEl}
-            files={data && data.extraFileNames}
+            files={data && data.extraFileDownloadDtos}
           />
         </TitleBox>
         <ContentBox>{data && data.content}</ContentBox>

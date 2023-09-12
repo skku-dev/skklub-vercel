@@ -66,10 +66,11 @@ export default function ClubCard({ club }) {
     router.push(`/${location}/${clubId}`);
   };
 
+
   return (
     <CustomCard key={club.name} onClick={() => handleCardClick(club.id)}>
       <Image
-        src={`data:image/png;base64,${club.logo.bytes}`}
+        src={club.logo.url}
         width={match425 ? 164 : 174}
         height={match425 ? 164 : 174}
         alt="notice thumbnail"

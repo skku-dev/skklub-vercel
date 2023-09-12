@@ -2,6 +2,7 @@
 
 import Categories from '@/app/components/cardBoard/Categories';
 import UpperBanner from '@/app/components/common/UpperBanner';
+import useURLParse from "@/hooks/useURLParse";
 import styled from '@emotion/styled';
 
 const CardBoardWrapper = styled.div`
@@ -17,16 +18,24 @@ const MainSection = styled.div`
 	padding-bottom: 100px;
 `;
 
+const PaddingUnderBanner = styled.div`
+  width: 100%;
+  height: 80px;
+  @media (max-width: 768px) {
+    height: 50px;
+  }
+`;
+
 export default function CardBoardLayout({ children }) {
-	return (
-		<>
-			<CardBoardWrapper>
-				<UpperBanner />
-				<MainSection>
-					<Categories />
-					{children}
-				</MainSection>
-			</CardBoardWrapper>
-		</>
-	);
+  const { type } = useURLParse();
+
+  return (
+    <CardBoardWrapper>
+      <UpperBanner />
+      <MainSection>
+        {type === "central-clubs" ? <Categories /> : <PaddingUnderBanner />}
+        {children}
+      </MainSection>
+    </CardBoardWrapper>
+  );
 }

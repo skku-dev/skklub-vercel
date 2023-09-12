@@ -30,7 +30,7 @@ export default function NoticePopover({ anchorEl, setAnchorEl, files }) {
   }, [open]);
 
   const handleAttatchmentClick = (file) => {
-    downloadAttachedFile(file.originalName, file.savedName);
+    downloadAttachedFile(file.fileName, file.url);
   };
 
   return (
@@ -54,7 +54,7 @@ export default function NoticePopover({ anchorEl, setAnchorEl, files }) {
               <ListItem disablePadding key={file.id}>
                 <ListItemButton>
                   <ListItemText
-                    primary={file.originalName}
+                    primary={file.fileName}
                     onClick={() => handleAttatchmentClick(file)}
                     sx={{
                       whiteSpace: "nowrap",

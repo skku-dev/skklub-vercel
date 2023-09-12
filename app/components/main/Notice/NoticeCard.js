@@ -55,7 +55,7 @@ export default function NoticeCard({ item }) {
       key={item.noticeId}
     >
       <NoticeImg
-        src={`data:image/png;base64,${item.thumbnail.bytes}`}
+        src={item.thumbnail.url}
         width={matches_425 ? (matches_375 ? 140 : 164) : 174}
         height={matches_425 ? (matches_375 ? 140 : 164) : 174}
         alt="notice thumbnail"

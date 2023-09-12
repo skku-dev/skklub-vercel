@@ -76,6 +76,52 @@ export const INTRO_DUMMY_DATA = {
   ],
 };
 
+export const RECOMMENDATION_COMMENT_SEOUL = [
+  {
+    category: "취미교양",
+    description: "같은 취미를 공유하는 친구들과 대학 생활의 추억을 쌓아보세요!",
+    hashtags: ["새로움", "설레는", "즐거움", "교류"],
+  },
+  {
+    category: "연행예술",
+    description: "넘치는 끼와 에너지를 자유롭게 발산해보세요!",
+    hashtags: ["무대", "공연", "축제", "열정"],
+  },
+  {
+    category: "학술",
+    description:
+      "도움이 필요한 곳에 행복을 나누거나 인문학적 고민을 함께 사색하는 교류의 공간입니다.",
+    hashtags: ["토론", "봉사", "친구", "이야기"],
+  },
+  {
+    category: "평면예술",
+    description: "같은 취미를 공유하는 친구들과 대학 생활의 추억을 쌓아보세요!",
+    hashtags: ["새로움", "설레는", "즐거움", "교류"],
+  },
+  {
+    category: "봉사",
+    description:
+      "도움이 필요한 곳에 행복을 나누거나 인문학적 고민을 함께 사색하는 교류의 공간입니다.",
+    hashtags: ["토론", "봉사", "친구", "이야기"],
+  },
+  {
+    category: "종교",
+    description: "사랑과 자비로 맞이하는 세상은 생각보다 따스할 지 몰라요!",
+    hashtags: ["사랑", "자비", "평화", "화합"],
+  },
+  {
+    category: "스포츠",
+    description:
+      "낯설게 느껴지는 종목이더라도 함께라면 두려움이 아닌 즐거움으로 다가올 거예요!",
+    hashtags: ["운동", "스포츠", "협동", "경쟁"],
+  },
+  {
+    category: "인문사회",
+    description: "같은 취미를 공유하는 친구들과 대학 생활의 추억을 쌓아보세요!",
+    hashtags: ["새로움", "설레는", "즐거움", "교류"],
+  },
+];
+
 export const RECOMMENDATION_COMMENT_SUWON = [
   {
     category: "연행예술",
@@ -123,61 +169,55 @@ export const RECOMMENDATION_COMMENT_SUWON = [
 
 export const CAROUSEL_COMMENT_SEOUL = [
   {
-    img: "종교분과.gif",
+    img: "Null",
     name: "나에게는\n어떤 동아리가\n어울릴까",
     content:
       "옆으로 넘기면서 성균관대학교에는\n어떤 동아리들이 있는지 살펴보세요.",
   },
   {
-    img: "과학기술.gif",
-    name: "과학기술",
-    content:
-      "과학기술분과는 자연과학, 공학, 기술 등 관심 분야를 탐구하는 지식의 바다입니다. 아무리 어려운 것이라도, 함께라면 막힘없이 풀 수 있을 거예요!",
-  },
-  {
-    img: "스포츠.gif",
+    img: "sport",
     name: "스포츠",
     content:
       "스포츠분과는 신체활동을 통해 체력증진을 돕는 우리들의 운동장입니다. 낯설게 느껴지는 종목이더라도 함께라면 두려움이 아닌 즐거움으로 다가올 거예요!",
   },
   {
-    img: "봉사.gif",
+    img: "service",
     name: "봉사",
     content:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "봉사분과에 대한 소개글은 아직 준비 중입니다! 조금만 기다려주세요 :)",
   },
   {
-    img: "연행예술.gif",
+    img: "performing_art",
     name: "연행예술",
     content:
       "연행예술분과는 무대에서 스스로를 표현하는 예술의 공간입니다. 넘치는 끼와 에너지를 자유롭게 발산해보세요!",
   },
   {
-    img: "종교분과.gif",
+    img: "religion",
     name: "종교",
     content:
       "종교분과는 다양한 종교가 모이는 화합의 공간입니다. 사랑과 자비로 맞이하는 세상은 생각보다 따스할 지 몰라요!",
   },
   {
-    img: "인문사회.gif",
+    img: "humanities",
     name: "인문사회",
     content:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "인문사회분과에 대한 소개글은 아직 준비 중입니다! 조금만 기다려주세요 :)",
   },
   {
-    img: "취미교양.gif",
+    img: "hobby",
     name: "취미교양",
     content:
       "취미교양분과는 게임, 여행, 커피 등 다양한 취미를 즐기는 캠퍼스의 정원입니다. 같은 취미를 공유하는 친구들과 대학 생활의 추억을 쌓아보세요!",
   },
   {
-    img: "평면예술.gif",
+    img: "drawing_art",
     name: "평면예술",
     content:
       "평면예술분과는 평면예술을 사랑하는 동아리들이 모여있습니다. 회화, 사진, 서예, 만화, 판화, 영상까지, 다양한 평면예술을 즐겨보세요!",
   },
   {
-    img: "학술분과.gif",
+    img: "academic",
     name: "학술",
     content:
       "학술분과는 우리 사회의 일원으로 함께할 수 있는 책임감의 장으로, 도움이 필요한 곳에 행복을 나누거나 인문학적 고민을 함께 사색하는 교류의 공간입니다.",
@@ -186,64 +226,69 @@ export const CAROUSEL_COMMENT_SEOUL = [
 
 export const CAROUSEL_COMMENT_SUWON = [
   {
-    img: "종교분과.gif",
+    img: "Null",
     name: "나에게는\n어떤 동아리가\n어울릴까",
     content:
       "옆으로 넘기면서 성균관대학교에는\n어떤 동아리들이 있는지 살펴보세요.",
   },
   {
-    img: "과학기술.gif",
+    img: "science",
     name: "과학기술",
     content:
       "과학기술분과는 자연과학, 공학, 기술 등 관심 분야를 탐구하는 지식의 바다입니다. 아무리 어려운 것이라도, 함께라면 막힘없이 풀 수 있을 거예요!",
   },
   {
-    img: "스포츠.gif",
+    img: "sport",
     name: "건강체육",
     content:
       "건강체육분과는 신체활동을 통해 체력증진을 돕는 우리들의 운동장입니다. 낯설게 느껴지는 종목이더라도 함께라면 두려움이 아닌 즐거움으로 다가올 거예요!",
   },
   // {
-  //   img: "봉사.gif",
+  //   img: "봉사",
   //   name: "봉사",
   //   content:
   //     "평면예술분과는 평면예술을 사랑하는 동아리들이 모여있습니다. 회화, 사진, 서예, 만화, 판화, 영상까지, 다양한 평면예술을 즐겨보세요!",
   // },
   {
-    img: "연행예술.gif",
+    img: "performing_art",
     name: "연행예술",
     content:
       "연행예술분과는 무대에서 스스로를 표현하는 예술의 공간입니다. 넘치는 끼와 에너지를 자유롭게 발산해 보세요!",
   },
   {
-    img: "종교분과.gif",
+    img: "religion",
     name: "종교",
     content:
       "종교분과는 다양한 종교가 모이는 화합의 공간입니다. 사랑과 자비로 맞이하는 세상은 생각보다 따스할 지 몰라요!",
   },
   // {
-  //   img: "인문사회.gif",
+  //   img: "인문사회",
   //   name: "인문사회",
   //   content:
   //     "평면예술분과는 평면예술을 사랑하는 동아리들이 모여있습니다. 회화, 사진, 서예, 만화, 판화, 영상까지, 다양한 평면예술을 즐겨보세요!",
   // },
   {
-    img: "취미교양.gif",
+    img: "hobby",
     name: "취미교양",
     content:
       "취미교양분과는 게임, 여행, 커피 등 다양한 취미를 즐기는 캠퍼스의 정원입니다. 같은 취미를 공유하는 친구들과 대학 생활의 추억을 쌓아보세요!",
   },
   {
-    img: "평면예술.gif",
+    img: "drawing_art",
     name: "문화창작",
     content:
       "문화창작분과는 하나의 작품만으로도 감동을 선사하는 표현의 창구입니다. 여러분의 감각을 담은 새로운 작품을 창조해보세요!",
   },
   {
-    img: "학술분과.gif",
+    img: "academic",
     name: "학술사회",
     content:
       "학술사회분과는 우리 사회의 일원으로 함께할 수 있는 책임감의 장으로, 도움이 필요한 곳에 행복을 나누거나 인문학적 고민을 함께 사색하는 교류의 공간입니다.",
   },
-  //기악예술 gif 없음
+  {
+    img: "instrumental_art",
+    name: "기악예술",
+    content:
+      "기악예술분과는 다양한 악기가 어우러져 이루는 조화의 악보입니다. 여러분의 음표를 더하여 오선지의 마지막을 완성하세요!",
+  },
 ];

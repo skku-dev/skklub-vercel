@@ -1,5 +1,9 @@
-import { RECOMMENDATION_COMMENT_SUWON } from "@/utils/constants";
+import {
+  RECOMMENDATION_COMMENT_SUWON,
+  RECOMMENDATION_COMMENT_SEOUL,
+} from "@/utils/constants";
 import { useEffect, useState } from "react";
+import useURLParse from "./useURLParse";
 
 function getRandomInt(min, max) {
   min = Math.ceil(min);
@@ -8,11 +12,14 @@ function getRandomInt(min, max) {
 }
 
 export default function useRandomRecommendation() {
+  const { isSuwon } = useURLParse();
   const [randNum, setRandNum] = useState(0);
   useEffect(() => {
     setRandNum(getRandomInt(0, 8));
   }, []);
 
-  const randBelong = RECOMMENDATION_COMMENT_SUWON[randNum];
+  const randBelong = isSuwon
+    ? RECOMMENDATION_COMMENT_SUWON[randNum]
+    : RECOMMENDATION_COMMENT_SEOUL[randNum];
   return [randBelong.category, randBelong.description, randBelong.hashtags];
 }

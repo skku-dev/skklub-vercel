@@ -88,10 +88,11 @@ export default function RecommendationClubCard({ clubData }) {
   const handleCardClick = () => {
     router.push(`${location}/${clubData.id}`);
   };
+
   return (
     <RecommendationClub onClick={handleCardClick}>
       <ClubTitle>{clubData.name}</ClubTitle>
-      <ClubType>{clubData.campus} / 분과</ClubType>
+      <ClubType>{clubData.campus}</ClubType>
     </RecommendationClub>
   );
 }

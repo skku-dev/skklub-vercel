@@ -5,7 +5,9 @@ import ThemeTitle from "./ThemeTitle";
 export default function ThemeContent({ category, description, hashtags }) {
   return (
     <>
-      <ThemeTitle>{category} 동시에 잡기</ThemeTitle>
+      <ThemeTitle>
+        {category}분과를 추천합니다 :{")"}
+      </ThemeTitle>
       <ThemeSubtitle>{description}</ThemeSubtitle>
       <HashtagsList hashtags={hashtags} />
     </>

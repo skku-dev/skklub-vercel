@@ -4,6 +4,7 @@ import { CATEGORIES_SEOUL, CATEGORIES_SUWON } from "@/utils/constants";
 import styled from "@emotion/styled";
 import { useRecoilState } from "recoil";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import { useEffect } from "react";
 
 const CategoryWrapper = styled.div`
   max-width: 1200px;
