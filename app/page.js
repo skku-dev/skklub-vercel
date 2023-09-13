@@ -97,7 +97,7 @@ export default function Home() {
   return (
     <StartPageWrapper isDarkMode={isDarkMode}>
       {match425 ? (
-        <Mp4 autoPlay muted>
+        <Mp4 autoPlay={true} muted={true} controls="">
           <source
             src={
               isDarkMode
@@ -108,7 +108,7 @@ export default function Home() {
           />
         </Mp4>
       ) : (
-        <Mp4 autoPlay muted>
+        <Mp4 autoPlay={true} muted={true} controls="">
           <source
             src={
               isDarkMode
