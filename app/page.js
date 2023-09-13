@@ -104,6 +104,7 @@ export default function Home() {
                 ? "/assets/animations/mob_loading_dark.mp4"
                 : "/assets/animations/mob_loading_light.mp4"
             }
+            type="video/mp4"
           />
         </Mp4>
       ) : (
@@ -114,6 +115,7 @@ export default function Home() {
                 ? "/assets/animations/web_loading_dark.mp4"
                 : "/assets/animations/web_loading_light.mp4"
             }
+            type="video/mp4"
           />
         </Mp4>
       )}
