@@ -9,6 +9,7 @@ import { useRecoilValue } from "recoil";
 import { initialIsLoadingState, isDarkModeState } from "@/utils/atoms";
 import { useMediaQuery } from "@mui/material";
 import LoadingLayout from "./layouts/loading/LoadingLayout";
+import { useEffect, useRef } from "react";
 
 const StartPageWrapper = styled.div`
   width: 100vw;
@@ -91,13 +92,21 @@ export default function Home() {
   const initialIsLoading = useRecoilValue(initialIsLoadingState);
   const match425 = useMediaQuery("(max-width:425px)");
 
+  const vidRef = useRef();
+
+  useEffect(() => {
+    if (vidRef.current) {
+      vidRef.current.play();
+    }
+  }, [vidRef.current]);
+
   if (initialIsLoading) {
     return <LoadingLayout />;
   }
   return (
     <StartPageWrapper isDarkMode={isDarkMode}>
       {match425 ? (
-        <Mp4 autoPlay={true} muted={true} controls="">
+        <Mp4 autoPlay={true} muted={true} controls="" ref={vidRef}>
           <source
             src={
               isDarkMode
@@ -108,7 +117,7 @@ export default function Home() {
           />
         </Mp4>
       ) : (
-        <Mp4 autoPlay={true} muted={true} controls="">
+        <Mp4 autoPlay={true} muted={true} controls="" ref={vidRef}>
           <source
             src={
               isDarkMode

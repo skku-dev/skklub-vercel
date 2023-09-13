@@ -46,15 +46,30 @@ const CardWrap = styled.div`
 `;
 
 const GifImg = styled.img`
-  width: calc(100% + 200px);
+  width: ${(props) =>
+    props.isNull ? "calc(100% + 100px)" : "calc(100% + 200px)"};
   position: absolute;
   top: 0;
   left: 50%;
-  transform: translate(-50%, 0);
+  transform: ${(props) =>
+    props.slide
+      ? props.isNull
+        ? "translate(-50%, 15%);"
+        : "translate(-50%, 0)"
+      : props.isNull
+      ? "translate(-50%, 50%);"
+      : "translate(-50%, 40%)"};
   @media (max-width: 750px) {
-    width: calc(100% + 100px);
+    transform: ${(props) =>
+      props.slide
+        ? props.isNull
+          ? "translate(-50%, 15%);"
+          : "translate(-50%, 0)"
+        : props.isNull
+        ? "translate(-50%, 50%);"
+        : "translate(-50%, 40%)"};
+    width: ${(props) => (props.isNull ? "100%" : "calc(100% + 100px)")};
   }
-
   @media (min-width: 1024px) {
     top: -10px;
   }
@@ -124,11 +139,15 @@ function ClubCarouselCard({ name, content, img, slide }) {
               ? `/assets/animations/${img}.gif`
               : `/assets/animations/${img}.png`
           }
+          isNull={img === "Null"}
+          slide={slide}
         />
-        <ContentWrap>
-          <Name>{name}</Name>
-          <Content>{content}</Content>
-        </ContentWrap>
+        {slide && (
+          <ContentWrap>
+            <Name>{name}</Name>
+            <Content>{content}</Content>
+          </ContentWrap>
+        )}
       </StyledCard>
     </CardWrap>
   );
@@ -215,7 +234,7 @@ export default function ClubCarousel() {
               stretch: 0,
               depth: 300, // 깊이감도
               modifier: 1, //
-              slideShadows: false, //선택한 부분 밝게 나머지는 그늘지게
+              slideShadows: true, //선택한 부분 밝게 나머지는 그늘지게
             }}
             navigation={{
               prevEl: ".prev",
