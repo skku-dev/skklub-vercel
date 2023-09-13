@@ -7,10 +7,6 @@ import lightLogo from "@/public/assets/images/skklub_logo_light.png";
 import LocationSelectBtn from "./components/start/LocationSelectBtn";
 import { useRecoilValue } from "recoil";
 import { initialIsLoadingState, isDarkModeState } from "@/utils/atoms";
-import darkWebGif from "@/public/assets/animations/web_loading_dark.gif";
-import lightWebGif from "@/public/assets/animations/web_loading_light.gif";
-import darkMobGif from "@/public/assets/animations/mob_loading_dark.gif";
-import lightMobGif from "@/public/assets/animations/mob_loading_light.gif";
 import { useMediaQuery } from "@mui/material";
 import LoadingLayout from "./layouts/loading/LoadingLayout";
 
@@ -21,13 +17,11 @@ const StartPageWrapper = styled.div`
   overflow: hidden;
 `;
 
-const VideoWrapper = styled.div`
+const Mp4 = styled.video`
   position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
   width: 100%;
-  z-index: -1;
+  height: 100%;
+  object-fit: cover;
 `;
 
 const BgVideo = styled.video`
@@ -103,19 +97,25 @@ export default function Home() {
   return (
     <StartPageWrapper isDarkMode={isDarkMode}>
       {match425 ? (
-        <Image
-          src={isDarkMode ? darkMobGif : lightMobGif}
-          alt=""
-          fill={true}
-          style={{ objectFit: "cover" }}
-        />
+        <Mp4 autoPlay muted>
+          <source
+            src={
+              isDarkMode
+                ? "/assets/animations/mob_loading_dark.mp4"
+                : "/assets/animations/mob_loading_light.mp4"
+            }
+          />
+        </Mp4>
       ) : (
-        <Image
-          src={isDarkMode ? darkWebGif : lightWebGif}
-          alt=""
-          fill={true}
-          style={{ objectFit: "cover" }}
-        />
+        <Mp4 autoPlay muted>
+          <source
+            src={
+              isDarkMode
+                ? "/assets/animations/web_loading_dark.mp4"
+                : "/assets/animations/web_loading_light.mp4"
+            }
+          />
+        </Mp4>
       )}
       <MainContents>
         <Phrase>성균관대학교 동아리를 한눈에!</Phrase>

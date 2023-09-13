@@ -18,35 +18,46 @@ import {
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { categoryState, isDarkModeState } from '@/utils/atoms';
 import Image from 'next/image';
+import { useState } from "react";
 
 const CarouselWrapperWithNavBtn = styled.div`
-	width: auto;
-	display: flex;
-	align-items: center;
+  width: auto;
+  display: flex;
+  align-items: center;
 `;
 
 const StyledNavBtn = styled(Image)`
-	margin: 40px;
-	cursor: pointer;
+  margin: 40px;
+  cursor: pointer;
 `;
 const ClubCarouselContainer = styled.div`
-	width: ${(props) => props.width || '50%'};
+  width: ${(props) => props.width || "50%"};
 `;
 
 const CardWrap = styled.div`
-	width: 100%;
-	box-sizing: border-box;
-	margin: 0 auto;
-	white-space: pre-line;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0 auto;
+  white-space: pre-line;
 
-	@media (max-width: 750px) {
-		max-width: 400px;
-	}
+  @media (max-width: 750px) {
+    max-width: 400px;
+  }
 `;
 
-const Mp4 = styled.video`
-  width: 100%;
-  margin: 50px 0;
+const GifImg = styled.img`
+  width: calc(100% + 200px);
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  @media (max-width: 750px) {
+    width: calc(100% + 100px);
+  }
+
+  @media (min-width: 1024px) {
+    top: -10px;
+  }
 `;
 
 const StyledCard = styled.div`
@@ -54,7 +65,6 @@ const StyledCard = styled.div`
   width: 100%;
   height: 40vh;
   min-height: 550px;
-  max-height: 600px;
   border-radius: 15px;
   background-color: ${({ theme }) => theme.palette.info.main};
   text-align: center;
@@ -62,25 +72,22 @@ const StyledCard = styled.div`
   box-shadow: 0px 4px 20px 5px rgba(0, 0, 0, 0.25);
 
   @media (max-width: 750px) {
-    height: 530px;
-    min-height: 530px;
+    height: 500px;
+    min-height: 500px;
     box-shadow: 0px 0px 8px 3px rgba(0, 0, 0, 0.16);
   }
 `;
 
 const ContentWrap = styled.div`
   width: 82%;
+  height: 100%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+  justify-content: end;
   align-items: center;
   padding-bottom: 50px;
   word-break: keep-all;
-
-  margin-top: ${(props) => (props.isFirst ? "-40px" : "0")};
-  @media (max-width: 320px) {
-    margin-top: ${(props) => (props.isFirst ? "-30px" : "0")};
-  }
 `;
 
 const Name = styled.div`
@@ -107,6 +114,26 @@ const InfoText = styled.div`
   }
 `;
 
+function ClubCarouselCard({ name, content, img, slide }) {
+  return (
+    <CardWrap>
+      <StyledCard>
+        <GifImg
+          src={
+            slide
+              ? `/assets/animations/${img}.gif`
+              : `/assets/animations/${img}.png`
+          }
+        />
+        <ContentWrap>
+          <Name>{name}</Name>
+          <Content>{content}</Content>
+        </ContentWrap>
+      </StyledCard>
+    </CardWrap>
+  );
+}
+
 export default function ClubCarousel() {
   const match760 = useMediaQuery("(max-width:760px)");
   const match1000 = useMediaQuery("(max-width:1000px)");
@@ -115,13 +142,10 @@ export default function ClubCarousel() {
   const pathname = usePathname();
   const setCategory = useSetRecoilState(categoryState);
   const IsDarkMode = useRecoilValue(isDarkModeState);
+  const [slide, setSlide] = useState(0);
 
   const handleClickCard = (clickedCategory) => {
-    if (clickedCategory === "나에게는\n어떤 동아리가\n어울릴까") {
-      setCategory("전체보기");
-    } else {
-      setCategory(clickedCategory);
-    }
+    setCategory(clickedCategory);
     const newPath = `${pathname}/central-clubs`;
     router.push(newPath);
   };
@@ -133,27 +157,6 @@ export default function ClubCarousel() {
     : match1200
     ? "1000px"
     : "1212px";
-
-  function ClubCarouselCard({ name, content, img }) {
-    return (
-      <CardWrap>
-        <StyledCard>
-          <Mp4 autoPlay loop muted>
-            <source
-              src={`/assets/animations/${img}_${
-                IsDarkMode && IsDarkMode ? "dark" : "light"
-              }.mp4`}
-            />
-          </Mp4>
-          <ContentWrap isFirst={img === "Null"}>
-            <Name>{name}</Name>
-            <Content>{content}</Content>
-          </ContentWrap>
-        </StyledCard>
-      </CardWrap>
-    );
-  }
-
   return (
     <ClubCarouselContainer width={width}>
       {match760 ? (
@@ -169,17 +172,19 @@ export default function ClubCarousel() {
           centeredSlides
           pagination={{ clickable: true }}
           modules={[Pagination]} // 모듈추가
+          onSlideChange={(swiper) => setSlide(swiper.realIndex)}
           className="mySwiper"
         >
           {(pathname === "/suwon"
             ? CAROUSEL_COMMENT_SUWON
             : CAROUSEL_COMMENT_SEOUL
-          ).map((info) => (
+          ).map((info, index) => (
             <SwiperSlide key={info.name}>
               <ClubCarouselCard
                 name={info.name}
                 content={info.content}
                 img={info.img}
+                slide={index === Number(slide)}
               />
             </SwiperSlide>
           ))}
@@ -188,9 +193,7 @@ export default function ClubCarousel() {
         <CarouselWrapperWithNavBtn>
           <StyledNavBtn
             className="prev"
-            src={`/assets/images/${
-              IsDarkMode && IsDarkMode ? "dark" : "light"
-            }_prev.png`}
+            src={`/assets/images/${IsDarkMode ? "dark" : "light"}_prev.png`}
             width={26}
             height={50}
             alt="prev button"
@@ -220,29 +223,29 @@ export default function ClubCarousel() {
             }} // 네비게이션 버튼
             pagination={{ clickable: true }}
             modules={[EffectCoverflow, Navigation, Pagination]} // 모듈추가
+            onSlideChange={(swiper) => setSlide(swiper.realIndex)}
             className="mySwiper"
           >
             {(pathname === "/suwon"
               ? CAROUSEL_COMMENT_SUWON
               : CAROUSEL_COMMENT_SEOUL
-            ).map((info) => (
+            ).map((info, index) => (
               <SwiperSlide
                 key={info.name}
-                onClick={() => handleClickCard(info.name)}
+                onClick={() => handleClickCard("전체")}
               >
                 <ClubCarouselCard
                   name={info.name}
                   content={info.content}
                   img={info.img}
+                  slide={index === Number(slide)}
                 />
               </SwiperSlide>
             ))}
           </Swiper>
           <StyledNavBtn
             className="next"
-            src={`/assets/images/${
-              IsDarkMode && IsDarkMode ? "dark" : "light"
-            }_next.png`}
+            src={`/assets/images/${IsDarkMode ? "dark" : "light"}_next.png`}
             width={26}
             height={50}
             alt="next button"
