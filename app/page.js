@@ -61,7 +61,7 @@ const Phrase = styled.h2`
   margin: 0;
   margin-bottom: 20px;
   word-break: keep-all;
-  @media (max-width: 425px) {
+  @media (max-width: 600px) {
     font-size: 1.5rem;
   }
 `;
@@ -73,7 +73,7 @@ const Intro = styled.div`
   font-weight: 400;
   line-height: normal;
   margin-top: 16px;
-  @media (max-width: 425px) {
+  @media (max-width: 600px) {
     font-size: 1.25rem;
   }
 `;
@@ -98,23 +98,23 @@ const BtnContainer = styled.div`
 export default function Home() {
   const isDarkMode = useRecoilValue(isDarkModeState);
   const initialIsLoading = useRecoilValue(initialIsLoadingState);
-  const match425 = useMediaQuery("(max-width:425px)");
+  const match600 = useMediaQuery("(max-width:600px)");
   const [ifGif, setGif] = useState(false);
 
   useEffect(() => {
-    if (match425) {
+    if (match600) {
       setTimeout(() => {
         setGif(true);
       }, 500);
     }
-  }, [match425]);
+  }, [match600]);
 
   if (initialIsLoading) {
     return <LoadingLayout />;
   }
   return (
     <StartPageWrapper isDarkMode={isDarkMode}>
-      {match425 ? (
+      {match600 ? (
         <Gif
           src={
             isDarkMode
