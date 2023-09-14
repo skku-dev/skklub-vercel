@@ -26,6 +26,14 @@ const Mp4 = styled.video`
   z-index: -1;
 `;
 
+const Gif = styled.img`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+`;
+
 const BgVideo = styled.video`
   height: 100%;
   width: 100%;
@@ -91,26 +99,15 @@ export default function Home() {
   const isDarkMode = useRecoilValue(isDarkModeState);
   const initialIsLoading = useRecoilValue(initialIsLoadingState);
   const match425 = useMediaQuery("(max-width:425px)");
-  const [videoPlayed, setVideoPlayed] = useState(false);
-  const vidRef = useRef();
+  const [ifGif, setGif] = useState(false);
 
   useEffect(() => {
-    if (vidRef.current && !videoPlayed) {
-      // 사용자 상호 작용 후에 비디오를 재생
-      const playVideo = () => {
-        vidRef.current.play();
-      };
-
-      // 모바일 디바이스에서 자동 재생을 음소거로 설정
-      if (match425) {
-        vidRef.current.muted = true;
-        // 사용자 상호 작용 후에 비디오를 재생
-        window.addEventListener("focus", playVideo);
-      } else {
-        playVideo();
-      }
+    if (match425) {
+      setTimeout(() => {
+        setGif(true);
+      }, 500);
     }
-  }, [vidRef.current, videoPlayed, match425]);
+  }, [match425]);
 
   if (initialIsLoading) {
     return <LoadingLayout />;
@@ -118,18 +115,16 @@ export default function Home() {
   return (
     <StartPageWrapper isDarkMode={isDarkMode}>
       {match425 ? (
-        <Mp4 autoPlay={true} muted={true} controls="" ref={vidRef}>
-          <source
-            src={
-              isDarkMode
-                ? "/assets/animations/mob_loading_dark.mp4"
-                : "/assets/animations/mob_loading_light.mp4"
-            }
-            type="video/mp4"
-          />
-        </Mp4>
+        <Gif
+          src={
+            isDarkMode
+              ? `/assets/animations/mob_loading_dark.${ifGif ? "gif" : "png"}`
+              : `/assets/animations/mob_loading_light.${ifGif ? "gif" : "png"}`
+          }
+          alt="onboarding gif"
+        />
       ) : (
-        <Mp4 autoPlay={true} muted={true} controls="" ref={vidRef}>
+        <Mp4 autoPlay={true} muted={true} controls="">
           <source
             src={
               isDarkMode
