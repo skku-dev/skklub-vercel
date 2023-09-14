@@ -9,7 +9,7 @@ import { useRecoilValue } from "recoil";
 import { initialIsLoadingState, isDarkModeState } from "@/utils/atoms";
 import { useMediaQuery } from "@mui/material";
 import LoadingLayout from "./layouts/loading/LoadingLayout";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const StartPageWrapper = styled.div`
   width: 100vw;
@@ -88,17 +88,31 @@ const BtnContainer = styled.div`
 
 export default function Home() {
   const isDarkMode = useRecoilValue(isDarkModeState);
-
   const initialIsLoading = useRecoilValue(initialIsLoadingState);
   const match425 = useMediaQuery("(max-width:425px)");
-
+  const [videoPlayed, setVideoPlayed] = useState(false);
   const vidRef = useRef();
 
   useEffect(() => {
-    if (vidRef.current) {
-      vidRef.current.play();
+    if (vidRef.current && !videoPlayed) {
+      // 사용자 상호 작용 후에 비디오를 재생
+      const playVideo = () => {
+        vidRef.current.play().then(() => {
+          setVideoPlayed(true);
+        });
+      };
+
+      // 모바일 디바이스에서 자동 재생을 음소거로 설정
+      if (match425) {
+        vidRef.current.muted = true;
+        // 사용자 상호 작용 후에 비디오를 재생
+        window.addEventListener("click", playVideo);
+        window.addEventListener("touchstart", playVideo);
+      } else {
+        playVideo();
+      }
     }
-  }, [vidRef.current]);
+  }, [vidRef.current, videoPlayed, match425]);
 
   if (initialIsLoading) {
     return <LoadingLayout />;

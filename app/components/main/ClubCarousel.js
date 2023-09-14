@@ -51,6 +51,7 @@ const GifImg = styled.img`
   position: absolute;
   top: 0;
   left: 50%;
+  opacity: ${(props) => (props.slide ? "100%" : "30%")};
   transform: ${(props) =>
     props.slide
       ? props.isNull
@@ -131,7 +132,7 @@ const InfoText = styled.div`
 
 function ClubCarouselCard({ name, content, img, slide }) {
   return (
-    <CardWrap>
+    <CardWrap slide={slide}>
       <StyledCard>
         <GifImg
           src={
@@ -139,7 +140,7 @@ function ClubCarouselCard({ name, content, img, slide }) {
               ? `/assets/animations/${img}.gif`
               : `/assets/animations/${img}.png`
           }
-          isNull={img === "Null"}
+          isNull={img === "Null" || img === "instrumental_art"}
           slide={slide}
         />
         {slide && (
@@ -234,7 +235,7 @@ export default function ClubCarousel() {
               stretch: 0,
               depth: 300, // 깊이감도
               modifier: 1, //
-              slideShadows: true, //선택한 부분 밝게 나머지는 그늘지게
+              slideShadows: false, //선택한 부분 밝게 나머지는 그늘지게
             }}
             navigation={{
               prevEl: ".prev",
