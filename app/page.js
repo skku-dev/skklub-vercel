@@ -23,6 +23,7 @@ const Mp4 = styled.video`
   width: 100%;
   height: 100%;
   object-fit: cover;
+  z-index: -1;
 `;
 
 const BgVideo = styled.video`
@@ -97,17 +98,14 @@ export default function Home() {
     if (vidRef.current && !videoPlayed) {
       // 사용자 상호 작용 후에 비디오를 재생
       const playVideo = () => {
-        vidRef.current.play().then(() => {
-          setVideoPlayed(true);
-        });
+        vidRef.current.play();
       };
 
       // 모바일 디바이스에서 자동 재생을 음소거로 설정
       if (match425) {
         vidRef.current.muted = true;
         // 사용자 상호 작용 후에 비디오를 재생
-        window.addEventListener("click", playVideo);
-        window.addEventListener("touchstart", playVideo);
+        window.addEventListener("focus", playVideo);
       } else {
         playVideo();
       }
