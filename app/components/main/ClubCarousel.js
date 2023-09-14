@@ -252,7 +252,7 @@ export default function ClubCarousel() {
             ).map((info, index) => (
               <SwiperSlide
                 key={info.name}
-                onClick={() => handleClickCard("전체")}
+                onClick={() => handleClickCard(info.name)}
               >
                 <ClubCarouselCard
                   name={info.name}
