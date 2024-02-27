@@ -67,7 +67,9 @@ export default function ClubCard({ club }) {
   };
 
 
-  return (
+  return club.name.includes("Club") ? (
+    ""
+  ) : (
     <CustomCard key={club.name} onClick={() => handleCardClick(club.id)}>
       <Image
         src={club.logo.url}

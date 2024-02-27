@@ -135,9 +135,9 @@ function HomeButton({ location }) {
     <Link href={`/${location}`}>
       <HomeImgWrap>
         {location === "suwon" ? (
-          <img src="/assets/images/skklub_명륜.png" />
+          <img src="/assets/images/skklub_명륜.png" alt="skklub home button" />
         ) : (
-          <img src="/assets/images/skklub_율전.png" />
+          <img src="/assets/images/skklub_율전.png" alt="skklub home button" />
         )}
       </HomeImgWrap>
     </Link>

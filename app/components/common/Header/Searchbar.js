@@ -72,6 +72,12 @@ const SuggestionBox = styled.div`
   padding: 0 10px;
   z-index: 60;
 
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
   @media (max-width: 480px) {
     top: 150px;
     width: 100%;
@@ -97,8 +103,7 @@ export default function Searchbar({ setIsSearchVisible, isDarkMode }) {
   const { isSuwon } = useURLParse();
   const router = useRouter();
   const [searchTerm, setSearchTerm] = useState("");
-  const [suggestions, setSuggestions] = useState([]);
-  const { isLoading, data } = useQuery({
+  const { data } = useQuery({
     queryKey: ["searchKeywords", searchTerm],
     queryFn: () => getPartiallyMatchedSearchResults({ searchTerm, isSuwon }),
   });
@@ -137,22 +142,13 @@ export default function Searchbar({ setIsSearchVisible, isDarkMode }) {
   };
 
   const outside = useRef();
-  const closeSearchbar = () => {
-    setIsSearchVisible(false);
-  };
 
-  useEffect(() => {
-    document.addEventListener("mousedown", handleOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleOutside);
-    };
-  });
-
-  const handleOutside = (e) => {
-    if (!outside.current.contains(e.target)) {
-      closeSearchbar();
-    }
-  };
+  // useEffect(() => {
+  //   document.addEventListener("mousedown", handleOutside);
+  //   return () => {
+  //     document.removeEventListener("mousedown", handleOutside);
+  //   };
+  // });
 
   return (
     <SearchbarWrap isDarkMode={isDarkMode} ref={outside}>
@@ -173,18 +169,20 @@ export default function Searchbar({ setIsSearchVisible, isDarkMode }) {
       <SuggestionBox isDarkMode={isDarkMode} campus={isSuwon.toString()}>
         <List component="div" aria-label="suggestion">
           {data &&
-            data.content.map((suggestion) => (
-              <ListItemButton
-                key={suggestion.id}
-                onClick={() => handleSelectSuggestion(suggestion)}
-              >
-                <ListItemText primary={suggestion.name} />
-                <BelongsLabel>{suggestion.belongs}</BelongsLabel>
-                <CampusChip campus={suggestion.campus}>
-                  {suggestion.campus}
-                </CampusChip>
-              </ListItemButton>
-            ))}
+            data.content.map((suggestion) =>
+              suggestion.name.includes("Club") ? null : (
+                <ListItemButton
+                  key={suggestion.id}
+                  onClick={() => handleSelectSuggestion(suggestion)}
+                >
+                  <ListItemText primary={suggestion.name} />
+                  <BelongsLabel>{suggestion.belongs}</BelongsLabel>
+                  <CampusChip campus={suggestion.campus}>
+                    {suggestion.campus}
+                  </CampusChip>
+                </ListItemButton>
+              )
+            )}
         </List>
       </SuggestionBox>
       <Snackbar

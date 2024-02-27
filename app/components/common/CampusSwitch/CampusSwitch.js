@@ -74,32 +74,11 @@ export default function CampusSwitch() {
   const { isSuwon, type } = useURLParse();
   const [isOn, setisOn] = useState(isSuwon); // false일때 명, true일때 율
 
-  // const toggleHandler = () => {
-  //   setisOn(!isOn);
-
-  //   if (isOn) {
-  //     setTimeout(() => {
-  //       if (type === undefined) {
-  //         router.push(`/seoul`).then(() => window.location.reload());
-  //       } else {
-  //         router.push(`/seoul/${type}`);
-  //       }
-  //     }, 750);
-  //   } else {
-  //     setTimeout(() => {
-  //       if (type === undefined) {
-  //         router.push(`/suwon`).then(() => window.location.reload());
-  //       } else {
-  //         router.push(`/suwon/${type}`);
-  //       }
-  //     }, 750);
-  //   }
-  // };
 
   const toggleHandler = async () => {
     setisOn(!isOn);
     window.scrollTo(0, 0);
-    await new Promise((resolve) => setTimeout(resolve, 750)); // Delay for smooth transition (optional)
+    await new Promise((resolve) => setTimeout(resolve, 750)); // Delay for smooth transition
     if (isOn) {
       if (type === undefined) {
         router.push(`/seoul`);

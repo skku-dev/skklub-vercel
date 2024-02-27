@@ -95,6 +95,14 @@ const BtnContainer = styled.div`
   }
 `;
 
+
+const Logo = styled(Image)`
+  width: 70vw;
+  height: auto;
+  max-width: 1430px;
+  min-width: 310px;
+`;
+
 export default function Home() {
   const isDarkMode = useRecoilValue(isDarkModeState);
   const initialIsLoading = useRecoilValue(initialIsLoadingState);
@@ -137,17 +145,7 @@ export default function Home() {
       )}
       <MainContents>
         <Phrase>성균관대학교 동아리를 한눈에!</Phrase>
-        <Image
-          src={isDarkMode ? darkLogo : lightLogo}
-          alt="SKKLUB LOGO"
-          placeholder="blur"
-          style={{
-            height: "auto",
-            width: "70vw",
-            maxWidth: "1430px",
-            minWidth: "310px",
-          }}
-        />
+        <Logo src={isDarkMode ? darkLogo : lightLogo} alt="SKKLUB LOGO" />
         <Intro>{`동아리 안내 서비스 '스클럽'`}</Intro>
 
         <BtnContainer>

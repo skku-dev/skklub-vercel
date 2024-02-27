@@ -140,6 +140,7 @@ function ClubCarouselCard({ name, content, img, slide }) {
               ? `/assets/animations/${img}.gif`
               : `/assets/animations/${img}.png`
           }
+          loading={slide ? `` : `lazy`}
           isNull={img === "Null" || img === "instrumental_art"}
           slide={slide}
         />
