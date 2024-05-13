@@ -1,8 +1,8 @@
-import styled from "@emotion/styled";
-import SectionWrapper from "./SectionWrapper";
-import { SectionTitle } from "./common";
-import Link from "next/link";
-import InstagramIcon from "@mui/icons-material/Instagram";
+import styled from '@emotion/styled';
+import SectionWrapper from './SectionWrapper';
+import { SectionTitle } from './common';
+import Link from 'next/link';
+import InstagramIcon from '@mui/icons-material/Instagram';
 
 const InfoContentWrapper = styled.div`
   padding-top: 12px;
@@ -34,6 +34,7 @@ const Label = styled.div`
   font-style: normal;
   font-weight: 500;
   line-height: 25px;
+  white-space: pre;
 `;
 
 const IGAdressContainer = styled.div`
@@ -42,11 +43,11 @@ const IGAdressContainer = styled.div`
 `;
 
 export default function InfoSection({ clubData }) {
-  const isIGUrl = (url) => (url ? url.includes("instagram") : false);
-  const isIGAccount = (url) => (url ? url[0] === "@" : false);
+  const isIGUrl = (url) => (url ? url.includes('instagram') : false);
+  const isIGAccount = (url) => (url ? url[0] === '@' : false);
   const getIGID = (url) => {
     if (isIGUrl(url)) {
-      return url.split("/")[3];
+      return url.split('/')[3];
     } else if (isIGAccount(url)) {
       return url;
     } else {
@@ -72,10 +73,6 @@ export default function InfoSection({ clubData }) {
           <Label>{clubData.roomLocation}</Label>
         </InfoContentRow>
         <InfoContentRow>
-          <BoldLabel>활동인원</BoldLabel>
-          <Label>{clubData.memberAmount}</Label>
-        </InfoContentRow>
-        <InfoContentRow>
           <BoldLabel>모임시간</BoldLabel>
           <Label>{clubData.regularMeetingTime}</Label>
         </InfoContentRow>
@@ -95,13 +92,13 @@ export default function InfoSection({ clubData }) {
                 isIGAccount(clubData.webLink1)
                   ? `https://www.instagram.com/${clubData.webLink1.slice(1)}`
                   : clubData.webLink1 ||
-                    "https://skklub-vercel.vercel.app/seoul"
+                    'https://skklub-vercel.vercel.app/seoul'
               }
-              style={{ width: "100%", wordBreak: "break-all" }}
+              style={{ width: '100%', wordBreak: 'break-all' }}
             >
               {isIGUrl(clubData.webLink1) ? (
                 <IGAdressContainer>
-                  <InstagramIcon /> {"@" + getIGID(clubData.webLink1)}
+                  <InstagramIcon /> {'@' + getIGID(clubData.webLink1)}
                 </IGAdressContainer>
               ) : isIGAccount(clubData.webLink1) ? (
                 <IGAdressContainer>
@@ -112,6 +109,10 @@ export default function InfoSection({ clubData }) {
               )}
             </Link>
           </Label>
+        </InfoContentRow>
+        <InfoContentRow>
+          <BoldLabel>가입 문의</BoldLabel>
+          <Label></Label>
         </InfoContentRow>
       </InfoContentWrapper>
     </SectionWrapper>

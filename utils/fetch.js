@@ -5,7 +5,7 @@ export const getUsers = async () =>
 		res.json()
 	);
 
-export const getClubs = async (campus = "seoul", clubType = "", belongs = "") =>
+export const getClubs = async (campus = "", clubType = "", belongs = "") =>
   await fetch(
     `${BASE_URL}/club/prev?campus=${campus}&clubType=${clubType}&size=1000`
   ).then((res) => res.json());

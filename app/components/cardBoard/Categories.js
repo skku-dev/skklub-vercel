@@ -95,6 +95,7 @@ export default function Categories() {
         style={{
           width: "auto",
           height: "auto",
+          padding: " 8px 21px",
         }}
       >
         <FavoriteIcon />

@@ -1,14 +1,14 @@
-"use client";
+'use client';
 
-import styled from "@emotion/styled";
-import RecruitingSection from "../../components/club-detail/RecruitingSection";
-import InfoSection from "../../components/club-detail/InfoSection";
-import AboutSection from "../../components/club-detail/AboutSection";
-import ActivitySection from "../../components/club-detail/ActivitySection";
-import ClubDetailBanner from "../../components/club-detail/ClubDetailBanner";
-import { getClubDetail } from "@/utils/fetch";
-import { useQuery } from "@tanstack/react-query";
-import LoadingLayout from "../loading/LoadingLayout";
+import styled from '@emotion/styled';
+import RecruitingSection from '../../components/club-detail/RecruitingSection';
+import InfoSection from '../../components/club-detail/InfoSection';
+import AboutSection from '../../components/club-detail/AboutSection';
+import ActivitySection from '../../components/club-detail/ActivitySection';
+import ClubDetailBanner from '../../components/club-detail/ClubDetailBanner';
+import { getClubDetail } from '@/utils/fetch';
+import { useQuery } from '@tanstack/react-query';
+import LoadingLayout from '../loading/LoadingLayout';
 
 const ClubDetailContent = styled.div`
   display: flex;
@@ -52,7 +52,7 @@ const InfoNActivityWrap = styled.div`
 
 export default function ClubDetailLayout({ clubId }) {
   const { data, isLoading } = useQuery({
-    queryKey: ["club-detail", clubId],
+    queryKey: ['club-detail', clubId],
     queryFn: () => getClubDetail(clubId),
   });
   return isLoading ? (
@@ -66,7 +66,6 @@ export default function ClubDetailLayout({ clubId }) {
           <InfoSection clubData={data} />
           <ActivitySection activityDescription={data?.activityDescription} />
         </InfoNActivityWrap>
-        <RecruitingSection clubData={data} />
       </ClubDetailContent>
     </>
   );

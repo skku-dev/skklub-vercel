@@ -1,5 +1,6 @@
-import styled from "@emotion/styled";
-import Link from "next/link";
+import styled from '@emotion/styled';
+import Link from 'next/link';
+import { decode } from 'html-entities';
 
 const BannerSubContent = styled.div`
   color: #fff;
@@ -55,22 +56,12 @@ const ClubPageNaviagateBtn = styled.button`
   }
 `;
 
-export default function BannerSubcontent({ weblink }) {
+export default function BannerSubcontent({ headLine }) {
   return (
     <>
       <BannerSubContent>
-        스클럽이 추천하는 동아리를 잘 살펴보세요!
-        <br />잘 모르던 분야도 함께 활동하다보면 어느새 즐거운 동료가 되어있을
-        거에요!
+        <span>{decode(headLine)}</span>
       </BannerSubContent>
-      <ClubPageNaviagateBtn disabled={weblink ? false : true}>
-        <Link
-          href={weblink || "https://skklub-vercel.vercel.app/seoul"}
-          style={{ pointerEvents: weblink || "none" }}
-        >
-          동아리 페이지 바로가기
-        </Link>
-      </ClubPageNaviagateBtn>
     </>
   );
 }

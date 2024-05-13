@@ -1,11 +1,12 @@
-"use client";
-import styled from "@emotion/styled";
-import Image from "next/image";
-import { useMediaQuery } from "@mui/material";
-import Link from "next/link";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import useClubLike from "@/hooks/useClubLike";
-import BannerSubcontent from "./BannerSubcontent";
+'use client';
+import styled from '@emotion/styled';
+import Image from 'next/image';
+import { useMediaQuery } from '@mui/material';
+import Link from 'next/link';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import useClubLike from '@/hooks/useClubLike';
+import BannerSubcontent from './BannerSubcontent';
+import useURLParse from '@/hooks/useURLParse';
 
 const BannerWrapper = styled.div`
   width: 100%;
@@ -58,16 +59,19 @@ const StatusWrapper = styled.div`
   }
 `;
 
-const RecruitStatus = styled.div`
-  width: 74px;
+const PlaceStatus = styled.div`
+  width: 100px;
   height: 34px;
-  background: #008564;
+  background: ${(props) =>
+    props.isSuwon
+      ? props.theme.palette.primary.main
+      : props.theme.palette.secondary.main};
   border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
   color: #fff;
-  font-family: Pretendard-Regular;
+  font-family: GmarketSansBold;
   font-size: 1rem;
   font-style: normal;
   font-weight: 700;
@@ -81,10 +85,10 @@ const RecruitStatus = styled.div`
 
 const PlaceInfo = styled.div`
   color: #fff;
-  font-family: Pretendard-Regular;
-  font-size: 1.125rem;
+  font-family: GmarketSansBold;
+  font-size: 1rem;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 160%; /* 28.8px */
 
   @media (max-width: 425px) {
@@ -110,7 +114,7 @@ const Heart = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  color: ${(props) => (props.isLiked ? "#da5d65" : "#b7b7b7")};
+  color: ${(props) => (props.isLiked ? '#da5d65' : '#b7b7b7')};
   transition: color 0.5s;
   &:hover {
     transform: scale(1.2);
@@ -130,28 +134,29 @@ const ClubName = styled.div`
 `;
 
 export default function ClubDetailBanner({ clubData }) {
-  const match425 = useMediaQuery("(max-width:425px)");
+  const match425 = useMediaQuery('(max-width:425px)');
 
   const [likedClubs, handleHeartClick] = useClubLike();
+
+  const { isSuwon } = useURLParse();
 
   return (
     <BannerWrapper>
       <BannerContent>
         <Image
-          src={clubData.logo.url}
+          src={clubData?.logo?.url}
           width={match425 ? 100 : 174}
           height={match425 ? 100 : 174}
           alt="CLUB_LOGO"
           style={{
-            borderRadius: "10px",
+            borderRadius: '10px',
           }}
         />
         <InfoWrapper>
           <StatusWrapper>
-            <RecruitStatus>
-              {clubData.recruit.recruitEndAt ? "모집중" : ""}
-            </RecruitStatus>
-            <PlaceInfo>{clubData.campus} 캠퍼스</PlaceInfo>
+            <PlaceStatus isSuwon={isSuwon}>
+              <PlaceInfo>{clubData.campus} 캠퍼스</PlaceInfo>
+            </PlaceStatus>
           </StatusWrapper>
           <NameWrapper>
             <ClubName>{clubData.name}</ClubName>
@@ -163,7 +168,7 @@ export default function ClubDetailBanner({ clubData }) {
             </Heart>
           </NameWrapper>
 
-          {!match425 && <BannerSubcontent weblink={clubData.webLink1} />}
+          {!match425 && <BannerSubcontent headLine={clubData.headLine} />}
         </InfoWrapper>
       </BannerContent>
       {match425 && <BannerSubcontent weblink={clubData.webLink1} />}

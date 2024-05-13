@@ -1,6 +1,6 @@
-import useURLParse from "@/hooks/useURLParse";
-import { INTRO_DUMMY_DATA } from "@/utils/constants";
-import styled from "@emotion/styled";
+import useURLParse from '@/hooks/useURLParse';
+import { INTRO_SEOUL, INTRO_SUWON } from '@/utils/constants';
+import styled from '@emotion/styled';
 
 const BannerWrapper = styled.div`
   width: 100vw;
@@ -13,7 +13,7 @@ const BannerWrapper = styled.div`
       props.isSuwon
         ? `url("/assets/images/banner_suwon.jpg")`
         : `url("/assets/images/banner_seoul.jpg")`};
-  background-position: ${(props) => (props.isSuwon ? "center" : "50% 60%")};
+  background-position: ${(props) => (props.isSuwon ? 'center' : '50% 60%')};
   background-size: cover;
   background-color: rgba(0, 0, 0, 0.5);
 `;
@@ -42,24 +42,19 @@ export default function UpperBanner() {
   const { isSuwon, type } = useURLParse();
 
   const convertEngTypeToKo = (type) => {
-    if (type === "central-clubs") {
-      return "중앙동아리";
-    } else if (type === "academic-clubs") {
-      return "학회";
-    } else if (type === "independent-clubs") {
-      return "기타동아리";
-    } else if (type === "groups") {
-      return "소모임";
-    } else if (type === "student-org") {
-      return "학생단체";
+    if (type === 'central-clubs') {
+      return '중앙동아리';
+    } else if (type === 'semi-central-clubs') {
+      return '준중앙동아리';
     } else {
-      return `"${INTRO_DUMMY_DATA.name}"`;
+      return isSuwon ? `${INTRO_SUWON.name}` : `${INTRO_SEOUL.name}`;
     }
   };
+
   return (
     <BannerWrapper isSuwon={isSuwon}>
       <div>
-        <SubTitle>{isSuwon ? "율전" : "명륜"} 캠퍼스</SubTitle>
+        <SubTitle>{isSuwon ? '율전' : '명륜'} 캠퍼스</SubTitle>
         <Title>{convertEngTypeToKo(type)}</Title>
       </div>
     </BannerWrapper>

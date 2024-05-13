@@ -1,23 +1,23 @@
-import styled from "@emotion/styled";
-import IconButton from "@mui/material/IconButton";
-import SearchIcon from "@mui/icons-material/Search";
-import CloseIcon from "@mui/icons-material/Close";
-import Sidebar from "./Sidebar";
-import Searchbar from "./Searchbar";
-import { useState } from "react";
-import { useMediaQuery } from "@mui/material";
-import styles from "./hamburger.module.css";
-import Link from "next/link";
-import { useRecoilValue, useSetRecoilState } from "recoil";
-import { categoryState, isDarkModeState } from "@/utils/atoms";
-import CampusSwitch from "../CampusSwitch/CampusSwitch";
-import ModeSwitch from "./ModeSwitch";
+import styled from '@emotion/styled';
+import IconButton from '@mui/material/IconButton';
+import SearchIcon from '@mui/icons-material/Search';
+import CloseIcon from '@mui/icons-material/Close';
+import Sidebar from './Sidebar';
+import Searchbar from './Searchbar';
+import { useState } from 'react';
+import { useMediaQuery } from '@mui/material';
+import styles from './hamburger.module.css';
+import Link from 'next/link';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { categoryState, isDarkModeState } from '@/utils/atoms';
+import CampusSwitch from '../CampusSwitch/CampusSwitch';
+import ModeSwitch from './ModeSwitch';
 
 const HeaderWrap = styled.div`
   position: fixed;
   top: 0;
   z-index: 999;
-  background-color: ${(props) => (props.isDarkMode ? "#2A3133" : "#F5F4EA")};
+  background-color: ${(props) => (props.isDarkMode ? '#2A3133' : '#F5F4EA')};
   width: 100%;
   height: 60px;
   padding: 20px 30px;
@@ -82,7 +82,7 @@ const NavButtonFont = styled.div`
         : props.theme.palette.secondary.main
       : props.isDarkMode
       ? props.theme.palette.text.primary
-      : "#585858"};
+      : '#585858'};
   &:hover {
     color: ${(props) =>
       props.isSuwon
@@ -134,7 +134,7 @@ function HomeButton({ location }) {
   return (
     <Link href={`/${location}`}>
       <HomeImgWrap>
-        {location === "suwon" ? (
+        {location === 'suwon' ? (
           <img src="/assets/images/skklub_명륜.png" alt="skklub home button" />
         ) : (
           <img src="/assets/images/skklub_율전.png" alt="skklub home button" />
@@ -148,7 +148,7 @@ function NavButton({ item, isDarkMode, isSuwon, type }) {
   const setCategory = useSetRecoilState(categoryState);
 
   const onLinkClick = () => {
-    setCategory("전체보기");
+    setCategory('전체보기');
   };
   return (
     <NavButtonFont
@@ -175,31 +175,20 @@ export default function HeaderBar({ location, isSuwon, type }) {
     setIsSearchVisible(!isSearchVisible);
   };
 
-  const match1023 = useMediaQuery("(max-width:1023px)");
-  const match760 = useMediaQuery("(max-width:760px)");
+  const match1023 = useMediaQuery('(max-width:1023px)');
+  const match760 = useMediaQuery('(max-width:760px)');
 
   const navItems = [
-    { name: "동아리연합회", path: location + "/intro", check: "intro" },
+    { name: '동아리연합회', path: location + '/intro', check: 'intro' },
     {
-      name: "중앙동아리",
-      path: location + "/central-clubs",
-      check: "central-clubs",
+      name: '중앙동아리',
+      path: location + '/central-clubs',
+      check: 'central-clubs',
     },
     {
-      name: "기타동아리",
-      path: location + "/independent-clubs",
-      check: "independent-clubs",
-    },
-    { name: "소모임", path: location + "/groups", check: "groups" },
-    {
-      name: "학회",
-      path: location + "/academic-clubs",
-      check: "academic-clubs",
-    },
-    {
-      name: "학생단체",
-      path: location + "/student-org",
-      check: "student-org",
+      name: '준중앙동아리',
+      path: location + '/semi-central-clubs',
+      check: 'semi-central-clubs',
     },
   ];
 
@@ -221,20 +210,20 @@ export default function HeaderBar({ location, isSuwon, type }) {
           </NavWrap>
 
           <IconButtonsWrap>
-            {type !== "notices" && !match760 && isNaN(type) && <CampusSwitch />}
+            {type !== 'notices' && !match760 && isNaN(type) && <CampusSwitch />}
             <IconButton onClick={handleSearchClick}>
               {isSearchVisible ? (
                 <CloseIcon
                   sx={{
-                    fontSize: "35px",
-                    color: isDarkMode ? "#fff" : "#585858",
+                    fontSize: '35px',
+                    color: isDarkMode ? '#fff' : '#585858',
                   }}
                 />
               ) : (
                 <SearchIcon
                   sx={{
-                    fontSize: "35px",
-                    color: isDarkMode ? "#fff" : "#585858",
+                    fontSize: '35px',
+                    color: isDarkMode ? '#fff' : '#585858',
                   }}
                 />
               )}
@@ -243,23 +232,23 @@ export default function HeaderBar({ location, isSuwon, type }) {
             <HamburgerWrap>
               <IconButton
                 className={`${styles.menutrigger} ${styles.type7} ${
-                  isOpen ? styles.active7 : ""
+                  isOpen ? styles.active7 : ''
                 }`}
                 onClick={toggleSide}
               >
                 <span
                   style={{
-                    backgroundColor: isDarkMode ? "#fff" : "#585858",
+                    backgroundColor: isDarkMode ? '#fff' : '#585858',
                   }}
                 ></span>
                 <span
                   style={{
-                    backgroundColor: isDarkMode ? "#fff" : "#585858",
+                    backgroundColor: isDarkMode ? '#fff' : '#585858',
                   }}
                 ></span>
                 <span
                   style={{
-                    backgroundColor: isDarkMode ? "#fff" : "#585858",
+                    backgroundColor: isDarkMode ? '#fff' : '#585858',
                   }}
                 ></span>
               </IconButton>
