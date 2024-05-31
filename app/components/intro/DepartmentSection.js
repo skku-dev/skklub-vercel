@@ -41,6 +41,7 @@ const DeptLeftSection = styled.div`
   width: 20%;
   display: flex;
   align-items: center;
+  margin-right: 40px;
 
   @media (max-width: 768px) {
     width: 100%;

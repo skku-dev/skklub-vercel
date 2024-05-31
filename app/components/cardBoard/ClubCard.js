@@ -9,11 +9,14 @@ const CustomCard = styled.div`
 	width: 174px;
 	border-radius: 1rem;
 	position: relative;
+	transition: transform 0.2s, box-shadow 0.2s;
 	@media (max-width: 425px) {
 		width: 164px;
 	}
 	&:hover {
 		cursor: pointer;
+		transform: translateY(-10px);
+		box-shadow: 0 10px 20px rgba(0, 0, 0, 0);
 	}
 `;
 
@@ -42,7 +45,7 @@ const ClubName = styled.div`
 
 const CardType = styled.div`
 	font-family: Pretendard;
-	font-size: 14px;
+	font-size: 16px;
 	font-style: normal;
 	font-weight: 500;
 	line-height: 160%; /* 22.4px */
@@ -76,7 +79,7 @@ export default function ClubCard({ club }) {
 				alt="notice thumbnail"
 				style={{
 					borderRadius: '10px',
-					backgroundColor: '#e6e6e6',
+					backgroundColor: 'white',
 				}}
 			/>
 			<CardHeader>

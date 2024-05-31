@@ -34,7 +34,14 @@ const Label = styled.div`
   font-style: normal;
   font-weight: 500;
   line-height: 25px;
-  white-space: pre;
+  word-break: keep-all;
+  white-space: pre-wrap;
+`;
+
+const LinkLabel = styled.div`
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 `;
 
 const IGAdressContainer = styled.div`
@@ -87,27 +94,27 @@ export default function InfoSection({ clubData }) {
         <InfoContentRow>
           <BoldLabel>동아리 페이지</BoldLabel>
           <Label>
-            <Link
+            <Label
               href={
                 isIGAccount(clubData.webLink1)
                   ? `https://www.instagram.com/${clubData.webLink1.slice(1)}`
                   : clubData.webLink1 ||
-                    'https://skklub-vercel.vercel.app/seoul'
+                  'https://skklub-vercel.vercel.app/seoul'
               }
               style={{ width: '100%', wordBreak: 'break-all' }}
             >
               {isIGUrl(clubData.webLink1) ? (
                 <IGAdressContainer>
-                  <InstagramIcon /> {'@' + getIGID(clubData.webLink1)}
+                  <InstagramIcon /><LinkLabel>{'@' + getIGID(clubData.webLink1)}</LinkLabel>
                 </IGAdressContainer>
               ) : isIGAccount(clubData.webLink1) ? (
                 <IGAdressContainer>
-                  <InstagramIcon /> {clubData.webLink1}
+                  <InstagramIcon /><LinkLabel>{clubData.webLink1}</LinkLabel>
                 </IGAdressContainer>
               ) : (
-                clubData.webLink1
+                <LinkLabel>{clubData.webLink1}</LinkLabel>
               )}
-            </Link>
+            </Label>
           </Label>
         </InfoContentRow>
         <InfoContentRow>
