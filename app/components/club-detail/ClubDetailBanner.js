@@ -168,10 +168,10 @@ export default function ClubDetailBanner({ clubData }) {
             </Heart>
           </NameWrapper>
 
-          {!match425 && <BannerSubcontent headLine={clubData.headLine} />}
+          {!match425 && <BannerSubcontent headLine={clubData.headLine} establishAt={clubData.establishAt} />}
         </InfoWrapper>
       </BannerContent>
-      {match425 && <BannerSubcontent weblink={clubData.webLink1} />}
+      {match425 && <BannerSubcontent weblink={clubData.webLink1} establishAt={clubData.establishAt} />}
     </BannerWrapper>
   );
 }
