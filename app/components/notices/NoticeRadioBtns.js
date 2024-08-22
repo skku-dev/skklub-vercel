@@ -36,12 +36,12 @@ export default function NoticeRadioBtns({ value, setValue }) {
         <FormControlLabel
           value="ROLE_ADMIN_SEOUL_CENTRAL"
           control={<StyledRadioBtn size="small" />}
-          label="명륜 동아리"
+          label="명륜"
         />
         <FormControlLabel
           value="ROLE_ADMIN_SUWON_CENTRAL"
           control={<StyledRadioBtn size="small" />}
-          label="율전 동아리"
+          label="율전"
         />
       </StyledRadioGroup>
     </FormControl>
