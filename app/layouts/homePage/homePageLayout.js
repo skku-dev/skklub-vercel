@@ -12,6 +12,7 @@ import ClubCarousel from '@/app/components/main/ClubCarousel';
 import useScreenHeight from '@/hooks/useScreenHeight';
 import Fadeinout from '@/app/components/main/Fadeinout';
 import useURLParse from '@/hooks/useURLParse';
+import Image from 'next/image';
 
 const FullScreenWrapper = styled.div`
 	width: 100%;
@@ -64,6 +65,18 @@ const ContentWrapper = styled.div`
 	}
 `;
 
+const BannerWrapper = styled.div`
+	width: 100%;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+`;
+
+const CustomImage = styled(Image)`
+	/* border-radius: 10px; */
+`;
+
 export default function HomePageLayout() {
 	const matches_768 = useMediaQuery('(max-width:768px)');
 	const matches_680 = useMediaQuery('(max-width:680px)');
@@ -85,7 +98,25 @@ export default function HomePageLayout() {
 			<FullScreenWrapper height={`${homeContainerHeight}px`}>
 				<ClubCarousel />
 			</FullScreenWrapper>
-			<PromotionBanner isSuwon={isSuwon}>홍보 배너 Coming soon</PromotionBanner>
+
+			<BannerWrapper>
+				{matches_680 ? (
+					<CustomImage
+						src="/assets/images/Ad_Banner_mobile.jpg"
+						width={425}
+						height={85}
+						alt="club_banner"
+					/>
+				) : (
+					<CustomImage
+						src="/assets/images/Ad_Banner_web.jpg"
+						width={1515}
+						height={187}
+						alt="club_banner"
+					/>
+				)}
+			</BannerWrapper>
+
 			<ContentWrapper>
 				{matches_768 ? <MobileRecommendSection /> : <RecommendSection />}
 				{matches_680 ? <MobileNoticeSection /> : <NoticeSection />}

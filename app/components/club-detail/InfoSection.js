@@ -63,7 +63,7 @@ export default function InfoSection({ clubData }) {
 	};
 
 	const isUrlPresent = (url) => {
-		if (url.length === 0) {
+		if (url?.length === 0) {
 			return false;
 		} else {
 			return (
@@ -122,17 +122,37 @@ export default function InfoSection({ clubData }) {
 							style={{ width: '100%', wordBreak: 'break-all' }}
 						>
 							{isIGUrl(clubData.webLink1) ? (
-								<IGAdressContainer>
-									<InstagramIcon />
-									<LinkLabel>{'@' + getIGID(clubData.webLink1)}</LinkLabel>
-								</IGAdressContainer>
+								<a
+									style={{
+										textDecoration: 'underline',
+									}}
+									href={clubData.webLink1}
+									target="_blank"
+								>
+									<IGAdressContainer>
+										<InstagramIcon />
+										<LinkLabel>{'@' + getIGID(clubData.webLink1)}</LinkLabel>
+									</IGAdressContainer>
+								</a>
 							) : isIGAccount(clubData.webLink1) ? (
-								<IGAdressContainer>
-									<InstagramIcon />
-									<LinkLabel>{clubData.webLink1}</LinkLabel>
-								</IGAdressContainer>
+								<a
+									style={{ textDecoration: 'underline' }}
+									href={`https://www.instagram.com/${clubData.webLink1.slice(
+										1
+									)}`}
+									target="_blank"
+								>
+									<IGAdressContainer>
+										<InstagramIcon />
+										<LinkLabel>{clubData.webLink1}</LinkLabel>
+									</IGAdressContainer>
+								</a>
 							) : (
-								<LinkLabel>{clubData.webLink1}</LinkLabel>
+								<LinkLabel>
+									<a href={clubData.webLink1} target="_blank">
+										{clubData.webLink1}
+									</a>
+								</LinkLabel>
 							)}
 						</Label>
 					</Label>
