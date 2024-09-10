@@ -102,14 +102,18 @@ export default function HomePageLayout() {
 			<BannerWrapper>
 				{matches_680 ? (
 					<CustomImage
-						src="/assets/images/Ad_Banner_mobile.jpg"
+						src={`/assets/images/Ad_Banner_mobile_${
+							isSuwon ? 'suwon' : 'seoul'
+						}.jpg`}
 						width={425}
 						height={85}
 						alt="club_banner"
 					/>
 				) : (
 					<CustomImage
-						src="/assets/images/Ad_Banner_web.jpg"
+						src={`/assets/images/Ad_Banner_web_${
+							isSuwon ? 'suwon' : 'seoul'
+						}.jpg`}
 						width={1515}
 						height={187}
 						alt="club_banner"
